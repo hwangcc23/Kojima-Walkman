@@ -1,2 +1,18 @@
+# Python
+__pycache__/                                                                                              
+*.py[cod]                                                                                                 
+*$py.class                                        
+venv/                                                                                                     
+.venv/                                                                                                    
+                                                                                                          
+# Secret & Sessions                                                                          
 auth_state.json
-venv/
+
+# Screenshots & Logs
+*.png
+*.log
+output.txt
+result.json
+
+# OS files
+.DS_Store
