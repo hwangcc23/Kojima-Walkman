@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import asyncio
 import json
 import sys
@@ -142,7 +144,25 @@ async def scrape_x(url, duration_hours, debug=False):
                         # Skip older tweets but keep scrolling as pinned tweets might be older
                         continue
 
-                    seen_tweet_ids.add(tweet_id)
+                    # Check if it's a Retweet (Handle comparison)
+                    # The author's handle is usually in a span starting with '@' inside 'User-Name'
+                    author_element = await tweet.query_selector('div[data-testid="User-Name"] span:has-text("@")')
+                    author_handle = ""
+                    if author_element:
+                        author_handle = await author_element.inner_text()
+                        author_handle = author_handle.strip().lstrip('@').lower()
+                    
+                    # If the author in the tweet is NOT the person we are scraping, it's a retweet
+                    is_retweet = (author_handle != username.lower()) if author_handle else False
+                    
+                    # Double check: sometimes pinned or specific retweets have socialContext
+                    if not is_retweet:
+                        retweet_indicator = await tweet.query_selector('div[data-testid="socialContext"]')
+                        if retweet_indicator:
+                            indicator_text = await retweet_indicator.inner_text()
+                            # Standard English "Retweeted" or other language indicators usually share this structure
+                            if indicator_text:
+                                is_retweet = True
 
                     # Extract Content
                     text_element = await tweet.query_selector('div[data-testid="tweetText"]')
@@ -166,6 +186,7 @@ async def scrape_x(url, duration_hours, debug=False):
                         "account_name": username,
                         "timestamp": time_str,
                         "content": text,
+                        "is_retweet": is_retweet,
                         "url": tweet_url,
                         "images": images,
                         "videos": videos
