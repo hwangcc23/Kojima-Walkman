@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Project: Collect Songs in the Walkman of my god: Hideo Kojima
+Author: Chih-Chyuan Hwang (hwangcc@csie.nctu.edu.tw) (Assisted by Google Gemini)
+License: Apache 2.0
+Description: A tool to scrape posts from X.com profiles.
+"""
 import asyncio
 import json
 import sys
