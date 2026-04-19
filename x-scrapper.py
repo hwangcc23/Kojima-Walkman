@@ -77,7 +77,6 @@ async def scrape_x(url, duration_hours, debug=False):
 
     if not os.path.exists("auth_state.json"):
         print("Severe Error: 'auth_state.json' not found.", file=sys.stderr)
-        print("Please ensure you have generated auth_state.json with a valid auth_token.", file=sys.stderr)
         return
 
     username = extract_username(url)
@@ -88,10 +87,7 @@ async def scrape_x(url, duration_hours, debug=False):
     scraped_count = 0
 
     async with async_playwright() as p:
-        # Launching browser
         browser = await p.chromium.launch(headless=True)
-        
-        # Load the session state (cookies)
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
             storage_state="auth_state.json"
@@ -101,34 +97,32 @@ async def scrape_x(url, duration_hours, debug=False):
         log(f"Navigating to {url}...")
         try:
             await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            
-            # Allow some time for the page to render and session to be validated
             await asyncio.sleep(5)
             
-            # Check if we were redirected to login (meaning token expired)
             if "i/flow/login" in page.url:
                 print("Severe Error: Session expired. Please update 'auth_token' in auth_state.json.", file=sys.stderr)
                 await browser.close()
                 return
 
             try:
-                # Wait for the main tweet container
                 await page.wait_for_selector('article[data-testid="tweet"]', timeout=30000)
             except:
-                print(f"Severe Error: Timeout waiting for tweets on {url}. The account might be private or blocked.", file=sys.stderr)
-                await page.screenshot(path="error_page.png")
+                print(f"Severe Error: Timeout waiting for tweets on {url}.", file=sys.stderr)
                 await browser.close()
                 return
 
             reached_end = False
             scroll_attempts = 0
-            max_scroll_attempts = 30 
+            # Increase max scrolls dynamically: ~1 scroll per 5 hours of content, min 50
+            max_scroll_attempts = max(50, int(duration_hours / 5) * 10) 
 
             while not reached_end and scroll_attempts < max_scroll_attempts:
                 tweets = await page.query_selector_all('article[data-testid="tweet"]')
                 
+                new_tweets_in_this_scroll = 0
+                current_scroll_earliest_time = None
+
                 for tweet in tweets:
-                    # Extract Post Link
                     link_element = await tweet.query_selector('a[href*="/status/"]')
                     if not link_element: continue
                     
@@ -136,57 +130,35 @@ async def scrape_x(url, duration_hours, debug=False):
                     tweet_url = f"https://x.com{tweet_path}"
                     tweet_id = tweet_path.split("/")[-1]
                     
-                    if tweet_id in seen_tweet_ids: continue
-                    
-                    # Extract Timestamp
                     time_element = await tweet.query_selector('time')
                     if not time_element: continue
-                        
                     time_str = await time_element.get_attribute("datetime")
                     tweet_time = datetime.fromisoformat(time_str.replace("Z", "+00:00"))
                     
-                    # Check Time Constraint
-                    if tweet_time < cutoff_time:
-                        # Skip older tweets but keep scrolling as pinned tweets might be older
-                        continue
+                    # Track the latest time we've seen in this scroll
+                    current_scroll_earliest_time = tweet_time
 
-                    # Check if it's a Retweet (Handle comparison)
-                    # The author's handle is usually in a span starting with '@' inside 'User-Name'
+                    if tweet_id in seen_tweet_ids: continue
+                    if tweet_time < cutoff_time: continue
+
+                    seen_tweet_ids.add(tweet_id)
+                    new_tweets_in_this_scroll += 1
+
+                    # Check for Retweet
                     author_element = await tweet.query_selector('div[data-testid="User-Name"] span:has-text("@")')
                     author_handle = ""
                     if author_element:
                         author_handle = await author_element.inner_text()
                         author_handle = author_handle.strip().lstrip('@').lower()
-                    
-                    # If the author in the tweet is NOT the person we are scraping, it's a retweet
                     is_retweet = (author_handle != username.lower()) if author_handle else False
                     
-                    # Double check: sometimes pinned or specific retweets have socialContext
-                    if not is_retweet:
-                        retweet_indicator = await tweet.query_selector('div[data-testid="socialContext"]')
-                        if retweet_indicator:
-                            indicator_text = await retweet_indicator.inner_text()
-                            # Standard English "Retweeted" or other language indicators usually share this structure
-                            if indicator_text:
-                                is_retweet = True
-
                     # Extract Content
                     text_element = await tweet.query_selector('div[data-testid="tweetText"]')
                     text = await text_element.inner_text() if text_element else ""
                     
-                    # Extract Images
-                    images = []
-                    img_elements = await tweet.query_selector_all('div[data-testid="tweetPhoto"] img')
-                    for img in img_elements:
-                        src = await img.get_attribute("src")
-                        if src: images.append(src)
-                    
-                    # Extract Videos
-                    videos = []
-                    video_elements = await tweet.query_selector_all('div[data-testid="videoPlayer"] video')
-                    for v in video_elements:
-                        v_src = await v.get_attribute("src")
-                        if v_src: videos.append(v_src)
+                    # Extract Media
+                    images = [await img.get_attribute("src") for img in await tweet.query_selector_all('div[data-testid="tweetPhoto"] img')]
+                    videos = [await v.get_attribute("src") for v in await tweet.query_selector_all('div[data-testid="videoPlayer"] video') if await v.get_attribute("src")]
                     
                     results.append({
                         "account_name": username,
@@ -199,25 +171,21 @@ async def scrape_x(url, duration_hours, debug=False):
                     })
                     
                     scraped_count += 1
-                    tweet_word = "tweet" if scraped_count == 1 else "tweets"
-                    log(f"scrapping {scraped_count} {tweet_word}")
+                    log(f"scrapping {scraped_count} {'tweet' if scraped_count == 1 else 'tweets'}")
 
-                # Scroll to load more
-                await page.evaluate("window.scrollBy(0, 2000)")
+                if current_scroll_earliest_time and debug:
+                    log(f"Scroll {scroll_attempts+1}/{max_scroll_attempts}: reached {current_scroll_earliest_time.strftime('%Y-%m-%d')}")
+
+                # Stop condition: if we've seen tweets older than cutoff (and it's not a pinned tweet)
+                if current_scroll_earliest_time and current_scroll_earliest_time < cutoff_time:
+                    # Pinned tweets are at the top, so we only stop if we are far enough
+                    if scroll_attempts > 2: 
+                        reached_end = True
+
+                await page.evaluate("window.scrollBy(0, 2500)")
                 await asyncio.sleep(3)
                 scroll_attempts += 1
-                
-                # Check if we should stop scrolling
-                if tweets:
-                    last_tweet_time_element = await tweets[-1].query_selector('time')
-                    if last_tweet_time_element:
-                        last_time_str = await last_tweet_time_element.get_attribute("datetime")
-                        last_time = datetime.fromisoformat(last_time_str.replace("Z", "+00:00"))
-                        if last_time < cutoff_time:
-                            # Reached tweets older than duration
-                            reached_end = True
 
-            # Output results
             results.sort(key=lambda x: x['timestamp'], reverse=True)
             print(json.dumps(results, ensure_ascii=False, indent=2))
 
