@@ -15,76 +15,42 @@ import os
 from datetime import datetime, timedelta, timezone
 from playwright.async_api import async_playwright
 
+# Ensure stdout is in blocking mode to prevent truncation on large data
+try:
+    import os
+    os.set_blocking(sys.stdout.fileno(), True)
+except:
+    pass
+
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="X.com (Twitter) Scraper - Scrapes posts and media links from a specified account within the last N hours.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Usage Examples:
-  1. Scrape Hideo Kojima's posts from the last 24 hours (default):
-     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN
-
-  2. Scrape posts from the last 48 hours and save to a JSON file:
-     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 48 > result.json
-
-  3. Enable debug mode to see detailed scraping progress:
-     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN --debug
-
-Notes:
-  This script requires 'auth_state.json' to be present in the same directory.
-  
-  PURPOSE:
-  X.com has strong anti-bot protections on its login page. This script bypasses 
-  the login process by using a pre-authenticated session (cookies) stored in 
-  'auth_state.json'.
-
-  HOW TO SETUP:
-  1. Login to X.com in your web browser.
-  2. Open Developer Tools (F12) -> Application -> Cookies -> https://x.com.
-  3. Find the 'auth_token' cookie and copy its value.
-  4. Create a file named 'auth_state.json' in this directory with the following content:
-
-  {
-    "cookies": [
-      {
-        "name": "auth_token",
-        "value": "PASTE_YOUR_AUTH_TOKEN_HERE",
-        "domain": ".x.com",
-        "path": "/",
-        "secure": true,
-        "httpOnly": true,
-        "sameSite": "Lax"
-      }
-    ],
-    "origins": []
-  }
-        """
+        description="X.com Scraper",
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("url", help="The X.com profile URL (e.g., https://x.com/HIDEO_KOJIMA_EN)")
-    parser.add_argument("--duration", "-d", type=int, default=24, help="Time range in hours to scrape (default: 24)")
-    parser.add_argument("--debug", "-D", action="store_true", help="Enable debug mode to print detailed logs to stdout")
+    parser.add_argument("url", help="The X.com profile URL")
+    parser.add_argument("--duration", "-d", type=int, default=24, help="Hours to scrape")
+    parser.add_argument("--debug", "-D", action="store_true", help="Enable progress logs to stderr")
     return parser.parse_args()
 
 def extract_username(url):
     match = re.search(r"(?:x|twitter)\.com/([^/?#]+)", url)
-    if match:
-        return match.group(1)
-    return "unknown"
+    return match.group(1) if match else "unknown"
 
 async def scrape_x(url, duration_hours, debug=False):
     def log(msg):
-        if debug: print(msg, file=sys.stdout)
+        if debug:
+            sys.stderr.write(f"LOG: {msg}\n")
+            sys.stderr.flush()
 
     if not os.path.exists("auth_state.json"):
-        print("Severe Error: 'auth_state.json' not found.", file=sys.stderr)
+        sys.stderr.write("Error: auth_state.json not found.\n")
         return
 
     username = extract_username(url)
     cutoff_time = datetime.now(timezone.utc) - timedelta(hours=duration_hours)
     
     results = []
-    seen_tweet_ids = set()
-    scraped_count = 0
+    seen_ids = set()
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -99,98 +65,91 @@ async def scrape_x(url, duration_hours, debug=False):
             await page.goto(url, wait_until="domcontentloaded", timeout=60000)
             await asyncio.sleep(5)
             
-            if "i/flow/login" in page.url:
-                print("Severe Error: Session expired. Please update 'auth_token' in auth_state.json.", file=sys.stderr)
-                await browser.close()
-                return
-
             try:
                 await page.wait_for_selector('article[data-testid="tweet"]', timeout=30000)
-            except:
-                print(f"Severe Error: Timeout waiting for tweets on {url}.", file=sys.stderr)
-                await browser.close()
-                return
+            except Exception as te:
+                await page.screenshot(path="debug_timeout.png")
+                log("Timeout waiting for tweets. Screenshot saved to debug_timeout.png")
+                raise te
 
             reached_end = False
             scroll_attempts = 0
-            # Increase max scrolls dynamically: ~1 scroll per 5 hours of content, min 50
-            max_scroll_attempts = max(50, int(duration_hours / 5) * 10) 
+            max_scrolls = max(400, int(duration_hours * 2))
+            empty_streak = 0
 
-            while not reached_end and scroll_attempts < max_scroll_attempts:
+            while not reached_end and scroll_attempts < max_scrolls:
                 tweets = await page.query_selector_all('article[data-testid="tweet"]')
-                
-                new_tweets_in_this_scroll = 0
-                current_scroll_earliest_time = None
+                found_new = False
 
                 for tweet in tweets:
-                    link_element = await tweet.query_selector('a[href*="/status/"]')
-                    if not link_element: continue
+                    link = await tweet.query_selector('a[href*="/status/"]')
+                    if not link: continue
+                    path = await link.get_attribute("href")
+                    tid = path.split("/")[-1]
                     
-                    tweet_path = await link_element.get_attribute("href")
-                    tweet_url = f"https://x.com{tweet_path}"
-                    tweet_id = tweet_path.split("/")[-1]
+                    time_el = await tweet.query_selector('time')
+                    if not time_el: continue
+                    tstr = await time_el.get_attribute("datetime")
+                    ttime = datetime.fromisoformat(tstr.replace("Z", "+00:00"))
                     
-                    time_element = await tweet.query_selector('time')
-                    if not time_element: continue
-                    time_str = await time_element.get_attribute("datetime")
-                    tweet_time = datetime.fromisoformat(time_str.replace("Z", "+00:00"))
-                    
-                    # Track the latest time we've seen in this scroll
-                    current_scroll_earliest_time = tweet_time
+                    if tid in seen_ids: continue
 
-                    if tweet_id in seen_tweet_ids: continue
-                    if tweet_time < cutoff_time: continue
-
-                    seen_tweet_ids.add(tweet_id)
-                    new_tweets_in_this_scroll += 1
-
-                    # Check for Retweet
-                    author_element = await tweet.query_selector('div[data-testid="User-Name"] span:has-text("@")')
-                    author_handle = ""
-                    if author_element:
-                        author_handle = await author_element.inner_text()
-                        author_handle = author_handle.strip().lstrip('@').lower()
-                    is_retweet = (author_handle != username.lower()) if author_handle else False
+                    # Basic Pinned Check
+                    is_pinned = False
+                    sc = await tweet.query_selector('div[data-testid="socialContext"]')
+                    if sc and "Pinned" in (await sc.inner_text()): is_pinned = True
                     
-                    # Extract Content
-                    text_element = await tweet.query_selector('div[data-testid="tweetText"]')
-                    text = await text_element.inner_text() if text_element else ""
+                    if ttime < cutoff_time:
+                        if scroll_attempts < 20: continue # Likely suggested/pinned
+                        else: continue
+
+                    seen_ids.add(tid)
+                    found_new = True
+
+                    author_el = await tweet.query_selector('div[data-testid="User-Name"] span:has-text("@")')
+                    author = (await author_el.inner_text()).strip().lstrip('@').lower() if author_el else ""
                     
-                    # Extract Media
-                    images = [await img.get_attribute("src") for img in await tweet.query_selector_all('div[data-testid="tweetPhoto"] img')]
-                    videos = [await v.get_attribute("src") for v in await tweet.query_selector_all('div[data-testid="videoPlayer"] video') if await v.get_attribute("src")]
+                    text_el = await tweet.query_selector('div[data-testid="tweetText"]')
+                    text = await text_el.inner_text() if text_el else ""
+                    imgs = [await img.get_attribute("src") for img in await tweet.query_selector_all('div[data-testid="tweetPhoto"] img')]
+                    vids = [await v.get_attribute("src") for v in await tweet.query_selector_all('div[data-testid="videoPlayer"] video') if await v.get_attribute("src")]
                     
                     results.append({
                         "account_name": username,
-                        "timestamp": time_str,
+                        "timestamp": tstr,
                         "content": text,
-                        "is_retweet": is_retweet,
-                        "url": tweet_url,
-                        "images": images,
-                        "videos": videos
+                        "is_retweet": (author != username.lower()),
+                        "url": f"https://x.com{path}",
+                        "images": imgs,
+                        "videos": vids
                     })
-                    
-                    scraped_count += 1
-                    log(f"scrapping {scraped_count} {'tweet' if scraped_count == 1 else 'tweets'}")
+                    if len(results) % 20 == 0:
+                        log(f"Scraped {len(results)} tweets... (current date: {ttime.strftime('%Y-%m-%d')})")
 
-                if current_scroll_earliest_time and debug:
-                    log(f"Scroll {scroll_attempts+1}/{max_scroll_attempts}: reached {current_scroll_earliest_time.strftime('%Y-%m-%d')}")
-
-                # Stop condition: if we've seen tweets older than cutoff (and it's not a pinned tweet)
-                if current_scroll_earliest_time and current_scroll_earliest_time < cutoff_time:
-                    # Pinned tweets are at the top, so we only stop if we are far enough
-                    if scroll_attempts > 2: 
+                if not found_new and scroll_attempts > 20:
+                    empty_streak += 1
+                    if empty_streak >= 15:
+                        log("Timeframe boundary reached. Stopping.")
                         reached_end = True
+                else:
+                    empty_streak = 0
 
-                await page.evaluate("window.scrollBy(0, 2500)")
-                await asyncio.sleep(3)
+                await page.evaluate("window.scrollBy(0, 3500)")
+                await asyncio.sleep(2)
                 scroll_attempts += 1
 
+            # FINAL OUTPUT
             results.sort(key=lambda x: x['timestamp'], reverse=True)
-            print(json.dumps(results, ensure_ascii=False, indent=2))
+            log(f"Success! Total {len(results)} tweets found.")
+            
+            # Using synchronous print to ensure the OS pipe receives everything before exit
+            final_json = json.dumps(results, ensure_ascii=False, indent=2)
+            sys.stdout.write(final_json)
+            sys.stdout.write('\n')
+            sys.stdout.flush()
 
         except Exception as e:
-            print(f"Severe Error: {e}", file=sys.stderr)
+            sys.stderr.write(f"CRITICAL ERROR: {e}\n")
         finally:
             await browser.close()
 
