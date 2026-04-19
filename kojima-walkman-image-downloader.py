@@ -14,10 +14,10 @@ import asyncio
 import httpx
 from urllib.parse import urlparse
 
-async def download_image(client, url, timestamp, folder):
+async def download_image(client, img_url, tweet_url, timestamp, folder):
     try:
         # Extract file extension or default to .jpg
-        path = urlparse(url).path
+        path = urlparse(img_url).path
         ext = os.path.splitext(path)[1]
         if not ext:
             ext = ".jpg"
@@ -25,7 +25,7 @@ async def download_image(client, url, timestamp, folder):
         # Use the filename from URL or a hash
         filename = os.path.basename(path)
         if not filename:
-            filename = f"image_{hash(url)}"
+            filename = f"image_{hash(img_url)}"
         
         # Ensure name is clean (X often appends :large etc to filenames)
         filename = filename.split(':')[0]
@@ -36,17 +36,18 @@ async def download_image(client, url, timestamp, folder):
         
         # Only download if it doesn't exist
         if not os.path.exists(save_path):
-            response = await client.get(url)
+            response = await client.get(img_url)
             if response.status_code == 200:
                 with open(save_path, "wb") as f:
                     f.write(response.content)
         
         return {
             "timestamp": timestamp,
+            "tweet_url": tweet_url,
             "full_path": os.path.abspath(save_path)
         }
     except Exception as e:
-        sys.stderr.write(f"Error downloading {url}: {e}\n")
+        sys.stderr.write(f"Error downloading {img_url}: {e}\n")
     return None
 
 async def main():
@@ -60,8 +61,8 @@ async def main():
         sys.stderr.write("Error: Input is not valid JSON.\n")
         return
 
-    # Create downloads directory
-    download_dir = os.path.join(os.getcwd(), "downloads")
+    # Create downloads directory in home folder
+    download_dir = os.path.expanduser("~/Downloads")
     os.makedirs(download_dir, exist_ok=True)
 
     results = []
@@ -70,12 +71,13 @@ async def main():
         for post in posts:
             content = post.get("content", "")
             timestamp = post.get("timestamp", "")
+            tweet_url = post.get("url", "")
             
             # Filter for "Good morning" (case-insensitive)
             if "good morning" in content.lower():
                 images = post.get("images", [])
                 for img_url in images:
-                    tasks.append(download_image(client, img_url, timestamp, download_dir))
+                    tasks.append(download_image(client, img_url, tweet_url, timestamp, download_dir))
 
         if tasks:
             downloaded_metadata = await asyncio.gather(*tasks)

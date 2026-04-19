@@ -64,6 +64,7 @@ def main():
     for item in image_list:
         path = item.get("full_path")
         timestamp = item.get("timestamp")
+        tweet_url = item.get("tweet_url")
         
         if path and os.path.exists(path):
             sys.stderr.write(f"Analyzing: {os.path.basename(path)}...\n")
@@ -71,6 +72,7 @@ def main():
             
             result_entry = {
                 "timestamp": timestamp,
+                "tweet_url": tweet_url,
                 "image_path": path,
                 "song_title": title
             }
