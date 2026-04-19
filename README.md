@@ -35,5 +35,38 @@ This project utilizes a multi-stage pipeline:
 2.  **Downloader**: Filters "Good morning" posts and downloads high-quality screenshots.
 3.  **Analyzer**: An EasyOCR-powered engine that extracts music metadata from images.
 
+## Usage
+
+You can execute the entire pipeline using the provided shell script or run each component individually.
+
+### Prerequisites
+- Install dependencies: `pip install -r requirements.txt`
+- Setup `auth_state.json` (see `python3 x-scrapper.py --help` for details)
+
+### Option 1: One-Click Execution (Recommended)
+Use the master script to run all three steps automatically:
+```bash
+# Scrape and analyze the last 24 hours
+./kojima-walkman-scrapper.sh
+
+# Scrape and analyze the last 10 days (240 hours)
+./kojima-walkman-scrapper.sh 240
+```
+
+### Option 2: Step-by-Step Execution
+If you need more control, you can chain the commands manually:
+```bash
+# 1. Scrape posts to JSON
+python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 24 > output.json
+
+# 2. Filter and Download images based on keywords
+cat output.json | python3 kojima-walkman-image-downloader.py > downloads.json
+
+# 3. Analyze images via OCR to extract song info
+cat downloads.json | python3 kojima-walkman-music-analyzer.py > results.json
+```
+
+---
+
 *Author: Chih-Chyuan Hwang (Assisted by Google Gemini)*  
 *License: Apache 2.0*
