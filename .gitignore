@@ -13,6 +13,8 @@ auth_state.json
 *.log
 output.txt
 result.json
+output.json
+downloads/
 
 # OS files
 .DS_Store
