@@ -16,15 +16,15 @@ By using automated scraping and OCR (Optical Character Recognition) technology, 
 
 The following table lists the songs captured from Hideo Kojima's posts, sorted by date:
 
-| Date | Song Title | Artist | Album |
-| :--- | :--- | :--- | :--- |
-| 2026-04-19 | Hypercharged | Electric Callboy & Brawl Stars | TANZNEID |
-| 2026-04-18 | The Man Who Stole Your Soul | Midge Ure | - |
-| 2026-04-16 | Bring Me The Horizon | Shadow Moses | - |
-| 2026-04-15 | Ta-lila~儀を見つけて~ | ナナムジカ | - |
-| 2026-04-14 | Tougher Than the Rest | Nation of Language | - |
-| 2026-04-13 | Tear You Away | Terminal Serious | - |
-| 2026-04-13 | Going Shopping | The Strokes | - |
+| Date | Song Title | Artist | Album | Tweet URL |
+| :--- | :--- | :--- | :--- | :--- |
+| 2026-04-19 | Hypercharged | Electric Callboy & Brawl Stars | TANZNEID | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045684713545969881) |
+| 2026-04-18 | The Man Who Stole Your Soul | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045352475398726045) |
+| 2026-04-16 | Bring Me The Horizon | Shadow Moses | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044920652340273208) |
+| 2026-04-15 | Ta-lila~儀を見つけて~ | ナナムジカ | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044558288470298734) |
+| 2026-04-14 | Tougher Than the Rest | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044196626127040567) |
+| 2026-04-13 | Tear You Away | Terminal Serious | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2043838213631160487) |
+| 2026-04-13 | Going Shopping | The Strokes | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2043479719287624081) |
 
 ---
 
@@ -60,10 +60,10 @@ If you need more control, you can chain the commands manually:
 python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 24 > output.json
 
 # 2. Filter and Download images based on keywords
-cat output.json | python3 kojima-walkman-image-downloader.py > downloads.json
+cat output.json | ./venv/bin/python3 kojima-walkman-image-downloader.py > downloads.json
 
 # 3. Analyze images via OCR to extract song info
-cat downloads.json | python3 kojima-walkman-music-analyzer.py > results.json
+cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py > results.json
 ```
 
 ---
