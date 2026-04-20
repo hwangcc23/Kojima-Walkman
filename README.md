@@ -18,13 +18,13 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
-| 2026-04-19 | First Light | Lana Del Rey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046005537888936150) |
+| 2026-04-20 | First Light | Lana Del Rey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046005537888936150) |
 | 2026-04-19 | Hypercharged | Electric Callboy & Brawl Stars | TANZNEID | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045684713545969881) |
 | 2026-04-18 | The Man Who Stole Your Soul | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045352475398726045) |
-| 2026-04-16 | Bring Me The Horizon | Shadow Moses | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044920652340273208) |
-| 2026-04-15 | Ta-lila~儀を見つけて~ | ナナムジカ | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044558288470298734) |
-| 2026-04-14 | Tougher Than the Rest | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044196626127040567) |
-| 2026-04-13 | Tear You Away | Terminal Serious | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2043838213631160487) |
+| 2026-04-17 | Bring Me The Horizon | Shadow Moses | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044920652340273208) |
+| 2026-04-16 | Ta-lila~儀を見つけて~ | ナナムジカ | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044558288470298734) |
+| 2026-04-15 | Tougher Than the Rest | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2044196626127040567) |
+| 2026-04-14 | Tear You Away | Terminal Serious | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2043838213631160487) |
 | 2026-04-13 | Going Shopping | The Strokes | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2043479719287624081) |
 
 ---

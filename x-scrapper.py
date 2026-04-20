@@ -15,6 +15,8 @@ import os
 from datetime import datetime, timedelta, timezone
 from playwright.async_api import async_playwright
 
+JST = timezone(timedelta(hours=9))
+
 # Ensure stdout uses UTF-8 encoding (required on Windows for Japanese/Unicode output)
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
@@ -119,7 +121,7 @@ async def scrape_x(url, duration_hours, debug=False):
                     
                     results.append({
                         "account_name": username,
-                        "timestamp": tstr,
+                        "timestamp": ttime.astimezone(JST).isoformat(),
                         "content": text,
                         "is_retweet": (author != username.lower()),
                         "url": f"https://x.com{path}",
