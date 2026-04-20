@@ -29,8 +29,48 @@ except:
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="X.com Scraper",
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        description="X.com (Twitter) Scraper - Scrapes posts and media links from a specified account within the last N hours.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Usage Examples:
+  1. Scrape Hideo Kojima's posts from the last 24 hours (default):
+     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN
+
+  2. Scrape posts from the last 48 hours and save to a JSON file:
+     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 48 > result.json
+
+  3. Enable debug mode to see detailed scraping progress:
+     python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN --debug
+
+Notes:
+  This script requires 'auth_state.json' to be present in the same directory.
+
+  PURPOSE:
+  X.com has strong anti-bot protections on its login page. This script bypasses
+  the login process by using a pre-authenticated session (cookies) stored in
+  'auth_state.json'.
+
+  HOW TO SETUP:
+  1. Login to X.com in your web browser.
+  2. Open Developer Tools (F12) -> Application -> Cookies -> https://x.com.
+  3. Find the 'auth_token' cookie and copy its value.
+  4. Create a file named 'auth_state.json' in this directory with the following content:
+
+  {
+    "cookies": [
+      {
+        "name": "auth_token",
+        "value": "PASTE_YOUR_AUTH_TOKEN_HERE",
+        "domain": ".x.com",
+        "path": "/",
+        "secure": true,
+        "httpOnly": true,
+        "sameSite": "Lax"
+      }
+    ],
+    "origins": []
+  }
+"""
     )
     parser.add_argument("url", help="The X.com profile URL")
     parser.add_argument("--duration", "-d", type=int, default=24, help="Hours to scrape")
