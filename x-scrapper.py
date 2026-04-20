@@ -15,6 +15,9 @@ import os
 from datetime import datetime, timedelta, timezone
 from playwright.async_api import async_playwright
 
+# Ensure stdout uses UTF-8 encoding (required on Windows for Japanese/Unicode output)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 # Ensure stdout is in blocking mode to prevent truncation on large data
 try:
     import os
