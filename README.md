@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-04-22 | Looking For Fun | Hard-Fi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046647327885246675) |
 | 2026-04-20 | First Light | Lana Del Rey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046005537888936150) |
 | 2026-04-19 | Hypercharged | Electric Callboy & Brawl Stars | TANZNEID | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045684713545969881) |
 | 2026-04-18 | The Man Who Stole Your Soul | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045352475398726045) |
