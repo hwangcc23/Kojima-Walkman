@@ -14,6 +14,12 @@ import asyncio
 import httpx
 from urllib.parse import urlparse
 
+# Ensure stdin/stdout use UTF-8 (required on Windows for Japanese/Unicode content)
+if hasattr(sys.stdin, 'reconfigure'):
+    sys.stdin.reconfigure(encoding='utf-8')
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 async def download_image(client, img_url, tweet_url, timestamp, folder):
     try:
         # Extract file extension or default to .jpg
