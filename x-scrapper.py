@@ -109,11 +109,11 @@ async def scrape_x(url, duration_hours, debug=False):
 
         log(f"Navigating to {url}...")
         try:
-            await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            await asyncio.sleep(5)
+            await page.goto(url, wait_until="load", timeout=60000)
+            await asyncio.sleep(3)
             
             try:
-                await page.wait_for_selector('article[data-testid="tweet"]', timeout=30000)
+                await page.wait_for_selector('article[data-testid="tweet"]', timeout=60000)
             except Exception as te:
                 await page.screenshot(path="debug_timeout.png")
                 log("Timeout waiting for tweets. Screenshot saved to debug_timeout.png")
