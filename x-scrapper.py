@@ -89,6 +89,8 @@ async def scrape_x(url, duration_hours, debug=False):
 
     if not os.path.exists("auth_state.json"):
         sys.stderr.write("Error: auth_state.json not found.\n")
+        sys.stdout.write("[]\n")
+        sys.stdout.flush()
         return
 
     username = extract_username(url)
@@ -195,6 +197,8 @@ async def scrape_x(url, duration_hours, debug=False):
 
         except Exception as e:
             sys.stderr.write(f"CRITICAL ERROR: {e}\n")
+            sys.stdout.write("[]\n")
+            sys.stdout.flush()
         finally:
             await browser.close()
 
