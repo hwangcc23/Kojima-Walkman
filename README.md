@@ -14,7 +14,7 @@ By using automated scraping and OCR (Optical Character Recognition) technology, 
 
 ## Kojima's Walkman Playlist
 
-The following table lists the songs captured from Hideo Kojima's posts, sorted by date:
+The following table lists the songs captured from Hideo Kojima's posts, sorted by date. This playlist is updated periodically to reflect his latest recommendations shared on X.com.
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
