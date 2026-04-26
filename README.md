@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-04-26 | Atmosphere | The Leaving | Ultimate buzz | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2048333550169252221) |
 | 2026-04-25 | Cryogen | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2047888093815193929) |
 | 2026-04-24 | Free to Love (feat. Nile Rodgers) | Duran Duran | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2047487052913209453) |
 | 2026-04-22 | Looking For Fun | Hard-Fi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046647327885246675) |
