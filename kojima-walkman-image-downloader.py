@@ -14,6 +14,9 @@ import asyncio
 import httpx
 from urllib.parse import urlparse
 
+MAX_RETRIES = 5
+RETRY_DELAY = 2 # seconds
+
 # Ensure stdin/stdout use UTF-8 (required on Windows for Japanese/Unicode content)
 if hasattr(sys.stdin, 'reconfigure'):
     sys.stdin.reconfigure(encoding='utf-8')
@@ -42,16 +45,34 @@ async def download_image(client, img_url, tweet_url, timestamp, folder):
         
         # Only download if it doesn't exist
         if not os.path.exists(save_path):
-            response = await client.get(img_url)
-            if response.status_code == 200:
-                with open(save_path, "wb") as f:
-                    f.write(response.content)
-        
-        return {
-            "timestamp": timestamp,
-            "tweet_url": tweet_url,
-            "full_path": os.path.abspath(save_path)
-        }
+            success = False
+            for attempt in range(1, MAX_RETRIES+1):
+                try:
+                    response = await client.get(img_url)
+                    if response.status_code == 200:
+                        with open(save_path, "wb") as f:
+                            f.write(response.content)
+                        success = True
+                        break
+                    else:
+                        sys.stderr.write(f"HTTP {response.status_code} for {img_url} (attempt {attempt}/{MAX_RETRIES})\n")
+                except httpx.RequestError as e:
+                    sys.stderr.write(f"Network error for {img_url} (attempt {attempt}/{MAX_RETRIES}): {e}\n")
+
+                if not success and attempt < MAX_RETRIES:
+                    await asyncio.sleep(RETRY_DELAY * attempt)
+
+            if not success:
+                sys.stderr.write(f"Giving up on {img_url} after {MAX_RETRIES} attempts.\n")
+                return None
+
+        # Double check file existence before returning metadata
+        if os.path.exists(save_path):
+            return {
+                "timestamp": timestamp,
+                "tweet_url": tweet_url,
+                "full_path": os.path.abspath(save_path)
+            }
     except Exception as e:
         sys.stderr.write(f"Error downloading {img_url}: {e}\n")
     return None
