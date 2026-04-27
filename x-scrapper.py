@@ -111,7 +111,15 @@ async def scrape_x(url, duration_hours, debug=False):
         try:
             await page.goto(url, wait_until="load", timeout=60000)
             await asyncio.sleep(3)
-            
+
+            # Dismiss any modal/overlay (e.g."Get Verified" banner)
+            await page.keyboard.press("Escape")
+            await asyncio.sleep(1)
+
+            # Scroll down to trigger virtual tweet rendering
+            await page.evaluate("window.scrollBy(0, 600)")
+            await asyncio.sleep(2)
+
             try:
                 await page.wait_for_selector('article[data-testid="tweet"]', timeout=60000)
             except Exception as te:
