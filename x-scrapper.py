@@ -112,11 +112,11 @@ async def scrape_x(url, duration_hours, debug=False):
             await page.goto(url, wait_until="load", timeout=60000)
             await asyncio.sleep(3)
 
-            # Dismiss any modal/overlay (e.g."Get Verified" banner)
+            # Dismiss any modal/overlay (e.g. "Get Verified" banner)
             await page.keyboard.press("Escape")
             await asyncio.sleep(1)
 
-            # Scroll down to trigger virtual tweet rendering
+            # Scroll down to trigger virtualized tweet rendering
             await page.evaluate("window.scrollBy(0, 600)")
             await asyncio.sleep(2)
 
