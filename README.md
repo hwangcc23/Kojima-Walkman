@@ -18,11 +18,14 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-01 | Awake | Tycho | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050028613916057682) |
+| 2026-04-30 | When It Rains | The Spoiled | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2049629710930571626) |
+| 2026-04-29 | Ben (Live from the 1981 U.S. Tour) | The Jacksons | Michael: Songs From the Motion Picture | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2049372953004183838) |
 | 2026-04-28 | Magnetic Fields, Pt. 1 | Jean-Michel Jarre | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2048909387105018245) |
 | 2026-04-27 | Spike Island | Pulp | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2048575333251817864) |
 | 2026-04-26 | Atmosphere | The Leaving | Ultimate buzz | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2048333550169252221) |
 | 2026-04-25 | Cryogen | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2047888093815193929) |
-| 2026-04-24 | Free to Love (feat. Nile Rodgers) | Duran Duran | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2047487052913209453) |
+| 2026-04-24 | Free to Love(feat. Nile Rodgers) | Duran Duran | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2047487052913209453) |
 | 2026-04-22 | Looking For Fun | Hard-Fi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046647327885246675) |
 | 2026-04-20 | First Light | Lana Del Rey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2046005537888936150) |
 | 2026-04-19 | Hypercharged | Electric Callboy & Brawl Stars | TANZNEID | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2045684713545969881) |
