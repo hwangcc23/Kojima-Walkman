@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-03 | Sing | Ladytron | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050794263307518424) |
 | 2026-05-02 | Nosedive | Man/Women/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050385734423707706) |
 | 2026-05-01 | Awake | Tycho | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050028613916057682) |
 | 2026-04-30 | When It Rains | The Spoiled | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2049629710930571626) |
