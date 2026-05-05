@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-04 | Behind The Mask (Mike's Mix) | Michael Jackson | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051137265087467797) |
 | 2026-05-03 | Sing | Ladytron | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050794263307518424) |
 | 2026-05-02 | Nosedive | Man/Women/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050385734423707706) |
 | 2026-05-01 | Awake | Tycho | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050028613916057682) |
