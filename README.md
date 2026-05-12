@@ -18,6 +18,9 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-11 | Big Dog | The Last Dinner Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2053605643819593741) |
+| 2026-05-10 | Look To Windward (Instrumental) | Sleep Token | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2053277333889659165) |
+| 2026-05-09 | Walk the Fire | Magnolian | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2052937773456433160) |
 | 2026-05-08 | I just Can't Get Over Losing You | The Lemon Twigs | Look For Your Mind! | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2052553923786125578) |
 | 2026-05-07 | Devil You Know | Maya Hawke | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2052192853183631833) |
 | 2026-05-06 | Burn in Heaven | TRAITRS | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051965864560455755) |
