@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-13 | THE ABYSS | HYDE | JEKYLL | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2054338329186050412) |
 | 2026-05-12 | The Man Who Stole Your Soul | Midge Ure | A Man of Two Worlds (World Two:Songs) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2053974630764060991) |
 | 2026-05-11 | Big Dog | The Last Dinner Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2053605643819593741) |
 | 2026-05-10 | Look To Windward (Instrumental) | Sleep Token | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2053277333889659165) |
