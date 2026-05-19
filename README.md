@@ -18,6 +18,8 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-18 | GREAT PRETENDER | Kasabian | ACT III | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2056151415756869900) |
+| 2026-05-17 | Go Fuck Urself | Fat Dog | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2055865961086136654) |
 | 2026-05-15 | Coming On Strong | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2055066106482880973) |
 | 2026-05-14 | The Main Theme From Proof Of The Man | 大野雄二 | 人間の証明 | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2054701105439985757) |
 | 2026-05-14 | 愛のバラード | 大野雄二 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2054701105439985757) |
