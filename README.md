@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-23 | The Beast | Anna von Hausswolff | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2058044798360252696) |
 | 2026-05-22 | Sail | Future Islands | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2057605497029902418) |
 | 2026-05-21 | Piano Man | Billy Joel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2057239418814202184) |
 | 2026-05-20 | Hexagons | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2056877201421979977) |
