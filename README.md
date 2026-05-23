@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-21 | Piano Man | Billy Joel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2057239418814202184) |
 | 2026-05-20 | Hexagons | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2056877201421979977) |
 | 2026-05-19 | Way To Fall (Live with Strings) | Starsailor | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2056515983767167344) |
 | 2026-05-18 | GREAT PRETENDER | Kasabian | ACT III | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2056151415756869900) |
