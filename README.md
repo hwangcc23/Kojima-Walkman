@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-29 | No Epilogue | AiNA THE END | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2060140137976328335) |
 | 2026-05-28 | Ketamine Eyes | Social Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2059776470202098172) |
 | 2026-05-27 | You Can Have Me Anytime | Boz Scaggs | Middle Man | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2059412231855779905) |
 | 2026-05-26 | The Singing Engines | THE NOVEMBERS | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2059049260059095445) |
