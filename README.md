@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-05-26 | The Singing Engines | THE NOVEMBERS | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2059049260059095445) |
 | 2026-05-25 | Salt | Midas Fall | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2058693821983289510) |
 | 2026-05-24 | Bally | Hot Chip | The Warning | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2058444659140202520) |
 | 2026-05-23 | The Beast | Anna von Hausswolff | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2058044798360252696) |
