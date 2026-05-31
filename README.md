@@ -81,20 +81,53 @@ You can execute the entire pipeline using the provided shell script or run each 
 
 ### Prerequisites
 - Install dependencies: `pip install -r requirements.txt`
-- Setup `auth_state.json` (see `python3 x-scrapper.py --help` for details)
+
+### Configuration Setup
+Create a file named `config.json` in the root directory. It holds both your X.com session cookie (to bypass login screens) and your Google Gemini API key:
+
+```json
+{
+  "x_auth_state": {
+    "cookies": [
+      {
+        "name": "auth_token",
+        "value": "YOUR_X_AUTH_TOKEN",
+        "domain": ".x.com",
+        "path": "/",
+        "secure": true,
+        "httpOnly": true,
+        "sameSite": "Lax"
+      }
+    ],
+    "origins": []
+  },
+  "gemini_api_key": "YOUR_GEMINI_API_KEY"
+}
+```
+
+#### Setup Steps:
+1. **X.com Session (`x_auth_state`)**:
+   - Log into X.com in your browser.
+   - Open Developer Tools (F12) -> Application -> Cookies.
+   - Find the `auth_token` cookie and copy its value, pasting it into the template above.
+2. **Gemini API Key (`gemini_api_key`)**:
+   - Visit [Google AI Studio](https://aistudio.google.com/).
+   - Create a free API Key and paste it into the `gemini_api_key` field. This enables the high-accuracy visual analysis engine.
 
 ### Option 1: One-Click Execution (Recommended)
-Use the master script to run all three steps automatically:
-```bash
-# Scrape and analyze the last 24 hours
-./kojima-walkman-scrapper.sh
+Use the master script to run all three steps automatically. You can specify the duration (in hours) as the first argument, and the analysis engine (`ocr` or `gemini`) as the second argument:
 
-# Scrape and analyze the last 10 days (240 hours)
-./kojima-walkman-scrapper.sh 240
+```bash
+# Run for the last 24 hours using the default EasyOCR engine
+./kojima-walkman-scrapper.sh 24 ocr
+
+# Run for the last 24 hours using the Gemini LLM engine
+./kojima-walkman-scrapper.sh 24 gemini
 ```
 
 ### Option 2: Step-by-Step Execution
-If you need more control, you can chain the commands manually:
+If you need more control, you can chain the commands manually. Use the `--engine` (or `-e`) option on `kojima-walkman-music-analyzer.py` to select the analysis mode:
+
 ```bash
 # 1. Scrape posts to JSON
 python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 24 > output.json
@@ -102,8 +135,12 @@ python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN -d 24 > output.json
 # 2. Filter and Download images based on keywords
 cat output.json | ./venv/bin/python3 kojima-walkman-image-downloader.py > downloads.json
 
-# 3. Analyze images via OCR to extract song info
-cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py > results.json
+# 3. Analyze images to extract song info
+# Using default EasyOCR (offline):
+cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine ocr > results.json
+
+# OR using Google Gemini LLM API:
+cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine gemini > results.json
 ```
 
 ---

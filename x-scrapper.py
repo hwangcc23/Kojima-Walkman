@@ -43,32 +43,35 @@ Usage Examples:
      python3 x-scrapper.py https://x.com/HIDEO_KOJIMA_EN --debug
 
 Notes:
-  This script requires 'auth_state.json' to be present in the same directory.
+  This script requires 'config.json' to be present in the same directory.
 
   PURPOSE:
   X.com has strong anti-bot protections on its login page. This script bypasses
   the login process by using a pre-authenticated session (cookies) stored in
-  'auth_state.json'.
+  'config.json' under the key 'x_auth_state'.
 
   HOW TO SETUP:
   1. Login to X.com in your web browser.
   2. Open Developer Tools (F12) -> Application -> Cookies -> https://x.com.
   3. Find the 'auth_token' cookie and copy its value.
-  4. Create a file named 'auth_state.json' in this directory with the following content:
+  4. Create a file named 'config.json' in this directory with the following content:
 
   {
-    "cookies": [
-      {
-        "name": "auth_token",
-        "value": "PASTE_YOUR_AUTH_TOKEN_HERE",
-        "domain": ".x.com",
-        "path": "/",
-        "secure": true,
-        "httpOnly": true,
-        "sameSite": "Lax"
-      }
-    ],
-    "origins": []
+    "x_auth_state": {
+      "cookies": [
+        {
+          "name": "auth_token",
+          "value": "PASTE_YOUR_AUTH_TOKEN_HERE",
+          "domain": ".x.com",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "origins": []
+    },
+    "gemini_api_key": "YOUR_GEMINI_API_KEY_HERE"
   }
 """
     )
@@ -87,8 +90,23 @@ async def scrape_x(url, duration_hours, debug=False):
             sys.stderr.write(f"LOG: {msg}\n")
             sys.stderr.flush()
 
-    if not os.path.exists("auth_state.json"):
-        sys.stderr.write("Error: auth_state.json not found.\n")
+    if not os.path.exists("config.json"):
+        sys.stderr.write("Error: config.json not found.\n")
+        sys.stdout.write("[]\n")
+        sys.stdout.flush()
+        return
+
+    try:
+        with open("config.json", "r", encoding="utf-8") as f:
+            config_data = json.load(f)
+            auth_state = config_data.get("x_auth_state")
+            if not auth_state or not auth_state.get("cookies"):
+                sys.stderr.write("Error: 'x_auth_state' or 'cookies' not found in config.json.\n")
+                sys.stdout.write("[]\n")
+                sys.stdout.flush()
+                return
+    except Exception as e:
+        sys.stderr.write(f"Error loading config.json: {e}\n")
         sys.stdout.write("[]\n")
         sys.stdout.flush()
         return
@@ -103,7 +121,7 @@ async def scrape_x(url, duration_hours, debug=False):
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-            storage_state="auth_state.json"
+            storage_state=auth_state
         )
         page = await context.new_page()
 

@@ -4,18 +4,18 @@
 Project: Collect Songs in the Walkman of my god: Hideo Kojima
 Author: Chih-Chyuan Hwang (hwangcc@csie.nctu.edu.tw) (Assisted by Google Gemini)
 License: Apache 2.0
-Description: Analyzes downloaded images using OCR to extract song title, artist, and album.
+Description: Analyzes downloaded images using EasyOCR or Gemini LLM to extract song title, artist, and album.
 """
 
 import json
 import sys
 import os
-import easyocr
+import argparse
+import base64
+import mimetypes
 import logging
 import re
-
-# Suppress easyocr/torch logs to keep stdout clean for JSON
-logging.getLogger('easyocr').setLevel(logging.ERROR)
+import httpx
 
 def analyze_music(reader, image_path):
     try:
@@ -109,7 +109,133 @@ def analyze_music(reader, image_path):
         sys.stderr.write(f"Error processing {image_path}: {e}\n")
         return "Error", None, None
 
+def get_best_model(api_key):
+    """
+    Queries the Gemini API for available models and returns the best Flash model.
+    """
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        with httpx.Client(timeout=10.0) as client:
+            response = client.get(url)
+            if response.status_code == 200:
+                models_data = response.json().get("models", [])
+                model_names = [m.get("name", "") for m in models_data]
+
+                # Check models in order of preference
+                for candidate in ["models/gemini-2.5-flash", "models/gemini-2.0-flash", "models/gemini-1.5-flash"]:
+                    if candidate in model_names:
+                        return candidate
+
+                # Fallback to any model containing flash
+                for name in model_names:
+                    if "flash" in name.lower():
+                        return name
+
+                # Fallback to the first available model if any
+                if model_names:
+                    return model_names[0]
+    except Exception as e:
+        sys.stderr.write(f"Warning: Failed to query available models ({e}). Defaulting to models/gemini-2.5-flash.\n")
+    return "models/gemini-2.5-flash"
+
+def analyze_music_gemini(image_path, api_key, model_name):
+    """
+    Analyzes downloaded images using Google Gemini API to extract music metadata (song_title, artist, album).
+    """
+    try:
+        # 1. Read and base64 encode the image
+        with open(image_path, "rb") as image_file:
+            image_data = base64.b64encode(image_file.read()).decode("utf-8")
+
+        # 2. Determine mime type
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if not mime_type:
+            mime_type = "image/jpeg"
+
+        # 3. Construct Gemini API request payload
+        model_id = model_name.replace("models/", "")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
+
+        payload = {
+            "contents": [
+                {
+                    "parts": [
+                        {
+                            "text": (
+                                "Analyze this screenshot from a music player (like a Walkman or car screen) "
+                                "to extract the song information.\n"
+                                "Please extract: \n"
+                                "1. song_title: The name of the song currently playing.\n"
+                                "2. artist: The artist of the song (set to null if not found).\n"
+                                "3. album: The album of the song (set to null if not found).\n\n"
+                                "Do not include UI text, time, battery indicators, or device brands like SONY/WALKMAN. "
+                                "Ensure the fields are returned exactly matching the requested JSON structure."
+                            )
+                        },
+                        {
+                            "inlineData": {
+                                "mimeType": mime_type,
+                                "data": image_data
+                            }
+                        }
+                    ]
+                }
+            ],
+            "generationConfig": {
+                "responseMimeType": "application/json",
+                "responseSchema": {
+                    "type": "OBJECT",
+                    "properties": {
+                        "song_title": {"type": "STRING"},
+                        "artist": {"type": "STRING"},
+                        "album": {"type": "STRING"}
+                    },
+                    "required": ["song_title"]
+                }
+            }
+        }
+
+        # 4. Make HTTP POST request to Gemini API
+        with httpx.Client(timeout=20.0) as client:
+            response = client.post(url, json=payload)
+            response.raise_for_status()
+
+            response_json = response.json()
+            # Extract content from response
+            candidates = response_json.get("candidates", [])
+            if not candidates:
+                sys.stderr.write(f"No candidates returned from Gemini for {os.path.basename(image_path)}\n")
+                return "Unknown Title", None, None
+
+            text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+            if not text_content:
+                sys.stderr.write(f"Empty text content in Gemini response for {os.path.basename(image_path)}\n")
+                return "Unknown Title", None, None
+
+            # Parse response JSON
+            data = json.loads(text_content.strip())
+
+            song_title = data.get("song_title") or "Unknown Title"
+            artist = data.get("artist") or None
+            album = data.get("album") or None
+
+            return song_title, artist, album
+
+    except Exception as e:
+        sys.stderr.write(f"Error processing {image_path} with Gemini ({model_name}): {e}\n")
+        return "Error", None, None
+
 def main():
+    # Setup Argument Parser
+    parser = argparse.ArgumentParser(description="Analyzes downloaded images using OCR or Gemini LLM to extract music metadata.")
+    parser.add_argument(
+        "--engine", "-e",
+        choices=["ocr", "gemini"],
+        default="ocr",
+        help="Analysis engine to use (default: ocr)"
+    )
+    args = parser.parse_args()
+
     # Read JSON from stdin
     try:
         input_data = sys.stdin.read()
@@ -118,27 +244,58 @@ def main():
         image_list = json.loads(input_data)
     except json.JSONDecodeError:
         sys.stderr.write("Error: Input is not valid JSON.\n")
-        return
+        sys.exit(1)
 
-    # Initialize EasyOCR Reader
-    sys.stderr.write("Initializing OCR engine (this may take a moment)...\n")
-    try:
-        reader = easyocr.Reader(['en', 'ja'], gpu=False)
-    except Exception as e:
-        sys.stderr.write(f"Failed to initialize OCR: {e}\n")
-        return
+    reader = None
+    api_key = None
+    model_name = None
+
+    if args.engine == "gemini":
+        # Load API key from config.json first
+        if os.path.exists("config.json"):
+            try:
+                with open("config.json", "r", encoding="utf-8") as f:
+                    cfg = json.load(f)
+                    api_key = cfg.get("gemini_api_key")
+            except Exception as e:
+                sys.stderr.write(f"Warning: Failed to load config.json: {e}\n")
+
+        # Fallback to environment variable
+        if not api_key:
+            api_key = os.environ.get("GEMINI_API_KEY")
+
+        if not api_key:
+            sys.stderr.write("Error: Gemini API key not found. Please set 'gemini_api_key' in config.json or export GEMINI_API_KEY.\n")
+            sys.exit(1)
+
+        # Query for the best available model
+        model_name = get_best_model(api_key)
+        sys.stderr.write(f"Selected Gemini model: {model_name}\n")
+    else:
+        # Initialize EasyOCR Reader
+        sys.stderr.write("Initializing OCR engine (this may take a moment)...\n")
+        try:
+            import easyocr
+            logging.getLogger('easyocr').setLevel(logging.ERROR)
+            reader = easyocr.Reader(['en', 'ja'], gpu=False)
+        except Exception as e:
+            sys.stderr.write(f"Failed to initialize OCR: {e}\n")
+            sys.exit(1)
 
     final_results = []
-    
+
     for item in image_list:
         path = item.get("full_path")
         timestamp = item.get("timestamp")
         tweet_url = item.get("tweet_url")
-        
+
         if path and os.path.exists(path):
             sys.stderr.write(f"Analyzing: {os.path.basename(path)}...\n")
-            title, artist, album = analyze_music(reader, path)
-            
+            if args.engine == "gemini":
+                title, artist, album = analyze_music_gemini(path, api_key, model_name)
+            else:
+                title, artist, album = analyze_music(reader, path)
+
             result_entry = {
                 "timestamp": timestamp,
                 "tweet_url": tweet_url,
@@ -149,7 +306,7 @@ def main():
                 result_entry["artist"] = artist
             if album:
                 result_entry["album"] = album
-            
+
             final_results.append(result_entry)
 
     # Output final summary to stdout
@@ -162,3 +319,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
