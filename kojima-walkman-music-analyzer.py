@@ -26,8 +26,8 @@ def analyze_music(reader, image_path):
             return "Unknown Title", None, None
 
         # 2. Identify Anchor (Progress Bar area)
-        # Look for time patterns like "1:23" or "04:50"
-        time_pattern = re.compile(r'\d{1,2}:\d{2}')
+        # Look for time patterns like "1:23" or "04:50" (handle OCR misreads of ':')
+        time_pattern = re.compile(r'\d{1,2}[:l|;.,\s]\d{1,2}')
         time_markers = []
         for (bbox, text, prob) in raw_results:
             if time_pattern.search(text):
