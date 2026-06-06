@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-01 | Lord of the Underground | John Carpenter, Cody Carpenter, Daniel Davies | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2061430720610857050) |
 | 2026-05-31 | The Ectasy Of Gold | Ennio Morricone | The Good, The Bad And The Ugly [Original Motion Picture Soundtrack] | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2060857596006048252) |
 | 2026-05-30 | Goddamn,Lizard Man! | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2060630972505391413) |
 | 2026-05-29 | No Epilogue | AiNA THE END | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2060140137976328335) |
