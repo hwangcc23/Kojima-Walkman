@@ -18,6 +18,8 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-06 | Man in the Arena | The Script | THE USER'S GUIDE TO BEING HUMAN | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063258144516559021) |
+| 2026-06-05 | Servant of All | Oh Hiroshima | And The Dead Tree Gives No Shelter | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062978705593352354) |
 | 2026-06-04 | Chronophobia | Propter Hoc | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062513404934492359) |
 | 2026-06-03 | Spooky (Sub Sub 12" Remix) | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062136838052299105) |
 | 2026-06-02 | Lost | A Place To Bury Strangers | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2061801109895647638) |
