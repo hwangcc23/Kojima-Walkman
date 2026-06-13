@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-11 | Further | Eli & Fur | Dreams At Dusk Part II | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2064726795082211831) |
 | 2026-06-10 | Be With You | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2064366044031205664) |
 | 2026-06-09 | No Fear | Iceage | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063999865684939222) |
 | 2026-06-07 | Na Na Na (Na Na Na Na Na Na Na Na Na) | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063617547430215728) |
