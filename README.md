@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-09 | No Fear | Iceage | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063999865684939222) |
 | 2026-06-07 | Na Na Na (Na Na Na Na Na Na Na Na Na) | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063617547430215728) |
 | 2026-06-06 | Man in the Arena | The Script | THE USER'S GUIDE TO BEING HUMAN | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063258144516559021) |
 | 2026-06-05 | Servant of All | Oh Hiroshima | And The Dead Tree Gives No Shelter | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062978705593352354) |
