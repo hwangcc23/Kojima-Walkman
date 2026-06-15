@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-15 | See Out Loud | Interpol | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066299560994144480) |
 | 2026-06-14 | Breathe in Silence | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066076035515605329) |
 | 2026-06-12 | Blood In The Labyrinth | Boards of Canada | Inferno | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2065082121782493192) |
 | 2026-06-11 | Further | Eli & Fur | Dreams At Dusk Part II | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2064726795082211831) |
