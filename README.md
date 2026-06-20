@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-18 | Did It To You | Letdown. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2067385508637089999) |
 | 2026-06-16 | Leave Her Johnny (Woodkid Resynced) | Woodkid, Assassin's Creed | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066660581999014380) |
 | 2026-06-15 | See Out Loud | Interpol | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066299560994144480) |
 | 2026-06-14 | Breathe in Silence | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066076035515605329) |
