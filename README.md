@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-24 | Nosedive | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069562130026958976) |
 | 2026-06-23 | Echoes | Antipole, Pedro Code, Ja'kob | Future Echoes | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069201781092188346) |
 | 2026-06-22 | True Faith-94 (Eschreamer Mix) | New Order, Eschreamer | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2068834894416122016) |
 | 2026-06-21 | Spin | Johnny Marr | The Age Of Everything | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2068515125062181078) |
