@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-26 | Raindrops Keep Falling on my head | B.J. Thomas | The Very Best Of B.J. Thomas | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070293912347132065) |
 | 2026-06-25 | Chronophobia | Propter Hoc | Dramaturgy | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069923815090761750) |
 | 2026-06-24 | Nosedive | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069562130026958976) |
 | 2026-06-23 | Echoes | Antipole, Pedro Code, Ja'kob | Future Echoes | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069201781092188346) |
