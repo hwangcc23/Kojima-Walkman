@@ -34,7 +34,8 @@ echo "----------------------------------------" >&2
 # 3. kojima-walkman-music-analyzer.py: Performs analysis to extract music info
 ./venv/bin/python3 x-scrapper.py "$TARGET_URL" -d "$DURATION" | \
 ./venv/bin/python3 kojima-walkman-image-downloader.py | \
-./venv/bin/python3 kojima-walkman-music-analyzer.py --engine "$ENGINE"
+./venv/bin/python3 kojima-walkman-music-analyzer.py --engine "$ENGINE" | \
+./venv/bin/python3 kojima-walkman-update-files.py
 
 echo "----------------------------------------" >&2
 echo "Pipeline execution finished." >&2
