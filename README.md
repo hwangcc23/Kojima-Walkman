@@ -18,8 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
-| 2026-06-27 | Crave | 三浦大知 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070293912347132065) |
-| 2026-06-26 | Raindrops Keep Falling on my head | B.J. Thomas | The Very Best Of B.J. Thomas | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070293912347132065) |
+| 2026-06-29 | The Rush | Editors | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2071372100439556566) |
+| 2026-06-28 | Free to Love (feat. Nile Rodgers) | Duran Duran | Free to Love: Hot Star Remixes | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2071105684125765776) |
+| 2026-06-27 | Crave | 三浦大知 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070848965583757386) |
+| 2026-06-26 | Raindrops Keep Falling on my head | B.J. Thomas | The Very Best Of | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070293912347132065) |
 | 2026-06-25 | Chronophobia | Propter Hoc | Dramaturgy | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069923815090761750) |
 | 2026-06-24 | Nosedive | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069562130026958976) |
 | 2026-06-23 | Echoes | Antipole, Pedro Code, Ja'kob | Future Echoes | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2069201781092188346) |
@@ -31,13 +33,13 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 | 2026-06-16 | Leave Her Johnny (Woodkid Resynced) | Woodkid, Assassin's Creed | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066660581999014380) |
 | 2026-06-15 | See Out Loud | Interpol | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066299560994144480) |
 | 2026-06-14 | Breathe in Silence | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2066076035515605329) |
-| 2026-06-12 | Blood In The Labyrinth | Boards of Canada | Inferno | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2065082121782493192) |
+| 2026-06-11 | Blood In The Labyrinth | Boards of Canada | Inferno | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2065082121782493192) |
 | 2026-06-11 | Further | Eli & Fur | Dreams At Dusk Part II | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2064726795082211831) |
 | 2026-06-10 | Be With You | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2064366044031205664) |
 | 2026-06-09 | No Fear | Iceage | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063999865684939222) |
 | 2026-06-07 | Na Na Na (Na Na Na Na Na Na Na Na Na) | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063617547430215728) |
 | 2026-06-06 | Man in the Arena | The Script | THE USER'S GUIDE TO BEING HUMAN | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2063258144516559021) |
-| 2026-06-05 | Servant of All | Oh Hiroshima | And The Dead Tree Gives No Shelter | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062978705593352354) |
+| 2026-06-06 | Servant of All | Oh Hiroshima | And The Dead Tree Gives No Shelter | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062978705593352354) |
 | 2026-06-04 | Chronophobia | Propter Hoc | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062513404934492359) |
 | 2026-06-03 | Spooky (Sub Sub 12" Remix) | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2062136838052299105) |
 | 2026-06-02 | Lost | A Place To Bury Strangers | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2061801109895647638) |
@@ -68,7 +70,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 | 2026-05-08 | I just Can't Get Over Losing You | The Lemon Twigs | Look For Your Mind! | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2052553923786125578) |
 | 2026-05-07 | Devil You Know | Maya Hawke | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2052192853183631833) |
 | 2026-05-06 | Burn in Heaven | TRAITRS | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051965864560455755) |
-| 2026-05-05 | Dance | Die (Alt Version) | Undertheskin | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051518032732938574) |
+| 2026-05-05 | Dance \| Die (Alt Version) | Undertheskin | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051518032732938574) |
 | 2026-05-04 | Behind The Mask (Mike's Mix) | Michael Jackson | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2051137265087467797) |
 | 2026-05-03 | Sing | Ladytron | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050794263307518424) |
 | 2026-05-02 | Nosedive | Man/Women/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2050385734423707706) |
