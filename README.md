@@ -18,6 +18,11 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-04 | Cancel Me (I'm Tired) | Fat Dog | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2073297235714978060) |
+| 2026-07-03 | Who Needs Spain Ball? | Formal Sppeedwear | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2072840214926791031) |
+| 2026-07-02 | Love Bombs | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2072459425160564916) |
+| 2026-07-01 | Transmission (Live Les Bains Douches, Paris 18th December, 1979) | Joy Division | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2072163020848119891) |
+| 2026-06-30 | 2000 Light Years from Home | The Danse Society | Heaven Is Waiting | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2071738443915506070) |
 | 2026-06-29 | The Rush | Editors | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2071372100439556566) |
 | 2026-06-28 | Free to Love (feat. Nile Rodgers) | Duran Duran | Free to Love: Hot Star Remixes | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2071105684125765776) |
 | 2026-06-27 | Crave | 三浦大知 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2070848965583757386) |
