@@ -18,6 +18,8 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-06 | My Nightly Dreams | Canzonieri | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2074004390269325762) |
+| 2026-07-05 | Hello Hell | Morrissey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2073655838636437779) |
 | 2026-07-04 | Cancel Me (I'm Tired) | Fat Dog | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2073297235714978060) |
 | 2026-07-03 | Who Needs Spain Ball? | Formal Sppeedwear | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2072840214926791031) |
 | 2026-07-02 | Love Bombs | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2072459425160564916) |
