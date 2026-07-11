@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-11 | Knocking at the Sky | The Last Dinner Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075812347629965645) |
+| 2026-07-10 | The Conversation | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075358070344167449) |
+| 2026-07-09 | PROFONDO ROSSO | Claudio Simonetti's Goblin | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2074994050726605292) |
+| 2026-07-07 | The Fan and the Bellows | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2074384808596144308) |
 | 2026-07-06 | My Nightly Dreams | Canzonieri | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2074004390269325762) |
 | 2026-07-05 | Hello Hell | Morrissey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2073655838636437779) |
 | 2026-07-04 | Cancel Me (I'm Tired) | Fat Dog | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2073297235714978060) |
