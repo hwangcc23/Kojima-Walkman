@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-12 | The Traveller (Into The Light) | Asia | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2076162132459360428) |
 | 2026-07-11 | Knocking at the Sky | The Last Dinner Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075812347629965645) |
 | 2026-07-10 | The Conversation | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075358070344167449) |
 | 2026-07-09 | PROFONDO ROSSO | Claudio Simonetti's Goblin | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2074994050726605292) |
