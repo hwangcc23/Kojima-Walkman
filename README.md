@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-17 | 1963-95 (Arthur Baker Radio Remix 2025 Remaster) | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077898712597324177) |
+| 2026-07-16 | CRIMSON BULLET | 水樹奈々 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077570518962847981) |
+| 2026-07-15 | Plus One Forever | Courteeners | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077173409931493839) |
+| 2026-07-14 | Beaches In Tennessee | Cage The Elephant | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2076813810179186894) |
 | 2026-07-12 | The Traveller (Into The Light) | Asia | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2076162132459360428) |
 | 2026-07-11 | Knocking at the Sky | The Last Dinner Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075812347629965645) |
 | 2026-07-10 | The Conversation | Nation of Language | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2075358070344167449) |
