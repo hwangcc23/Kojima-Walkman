@@ -18,6 +18,14 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-25 | Dine N'Dash | The Strokes | Reality Awaits | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080883355143541238) |
+| 2026-07-24 | Touch of Beauty | Pino Donaggio | Her Private Hell (Original Motion Picture Soundtrack) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080449438712320017) |
+| 2026-07-23 | Bound In Mystery | Crying Vessel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080074372052918689) |
+| 2026-07-22 | Waiting | Green Day | Nimrods The Soundtrack | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2079713582863061387) |
+| 2026-07-21 | Paradise | Brandon Flowers | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2079347773489705096) |
+| 2026-07-20 | Martini Me Fatso | Matt Berninger | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2079005031999873345) |
+| 2026-07-19 | Brussels Is Haunted | Echo & the Bunnymen | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2078699468535558157) |
+| 2026-07-18 | Vice Versa | The Lathums | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2078398976404152378) |
 | 2026-07-17 | 1963-95 (Arthur Baker Radio Remix 2025 Remaster) | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077898712597324177) |
 | 2026-07-16 | CRIMSON BULLET | 水樹奈々 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077570518962847981) |
 | 2026-07-15 | Plus One Forever | Courteeners | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2077173409931493839) |
