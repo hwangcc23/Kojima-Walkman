@@ -18,6 +18,9 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-28 | Coming On Strong | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081884407049416875) |
+| 2026-07-27 | The Dark Forest | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081519519529603392) |
+| 2026-07-26 | Velvet | Vioflesh | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081193270919766110) |
 | 2026-07-25 | Dine N'Dash | The Strokes | Reality Awaits | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080883355143541238) |
 | 2026-07-24 | Touch of Beauty | Pino Donaggio | Her Private Hell (Original Motion Picture Soundtrack) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080449438712320017) |
 | 2026-07-23 | Bound In Mystery | Crying Vessel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2080074372052918689) |
