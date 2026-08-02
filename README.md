@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-01 | Wonderland (Single Version) | Downes Braide Association | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2083490377722736765) |
+| 2026-07-31 | Time Is Running Out | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2082967138428649485) |
+| 2026-07-30 | TIME'S UP | Cutemen | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2082654590022058042) |
+| 2026-07-29 | Seren | Nordic Giants | Under Celestial Alignments | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2082245694237376934) |
 | 2026-07-28 | Coming On Strong | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081884407049416875) |
 | 2026-07-27 | The Dark Forest | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081519519529603392) |
 | 2026-07-26 | Velvet | Vioflesh | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2081193270919766110) |
