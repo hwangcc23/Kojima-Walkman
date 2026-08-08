@@ -18,6 +18,11 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-08 | Judgement Day | Then Comes Silence | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085898240055194073) |
+| 2026-08-07 | - | Ludwig Göransson | The Odyssey (Original Motion Picture Score) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085502619452338305) |
+| 2026-08-05 | My Life In England Pt. 1 | Dexys Midnight Runners | Love | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2084665778490761297) |
+| 2026-08-04 | Keep Walking | 羊文学 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2084396458468610079) |
+| 2026-08-02 | - | The Swell Season, Markéta Irglová & Glen Hansard | Forward | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2083768118552510647) |
 | 2026-08-01 | Wonderland (Single Version) | Downes Braide Association | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2083490377722736765) |
 | 2026-07-31 | Time Is Running Out | Muse | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2082967138428649485) |
 | 2026-07-30 | TIME'S UP | Cutemen | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2082654590022058042) |
