@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-09 | Canyons | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2086264389381005485) |
 | 2026-08-08 | Judgement Day | Then Comes Silence | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085898240055194073) |
 | 2026-08-07 | - | Ludwig Göransson | The Odyssey (Original Motion Picture Score) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085502619452338305) |
 | 2026-08-05 | My Life In England Pt. 1 | Dexys Midnight Runners | Love | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2084665778490761297) |
