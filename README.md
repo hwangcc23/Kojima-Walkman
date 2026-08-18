@@ -18,6 +18,11 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-17 | Dine N'Dash | The Strokes | REALITY AWAITS | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2089171147644703019) |
+| 2026-08-16 | No Encores in a Swan Song | Blind Channel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2088933451311595683) |
+| 2026-08-15 | NOTHING BETTER THAN THIS | Kasabian | NOTHING BETTER THAN THIS | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2088443297673146809) |
+| 2026-08-13 | Snake Oil | Lovejoy | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2087710767873462594) |
+| 2026-08-12 | Sweet July | TAKE THAT | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2087336080102355262) |
 | 2026-08-09 | Canyons | Man/Woman/Chainsaw | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2086264389381005485) |
 | 2026-08-08 | Judgement Day | Then Comes Silence | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085898240055194073) |
 | 2026-08-07 | - | Ludwig Göransson | The Odyssey (Original Motion Picture Score) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2085502619452338305) |
