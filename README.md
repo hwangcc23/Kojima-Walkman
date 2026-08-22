@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-20 | Marianne | Fontaines D.C. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2090344579019190490) |
 | 2026-08-17 | Dine N'Dash | The Strokes | REALITY AWAITS | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2089171147644703019) |
 | 2026-08-16 | No Encores in a Swan Song | Blind Channel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2088933451311595683) |
 | 2026-08-15 | NOTHING BETTER THAN THIS | Kasabian | NOTHING BETTER THAN THIS | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2088443297673146809) |
