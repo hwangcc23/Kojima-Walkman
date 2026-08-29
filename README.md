@@ -18,6 +18,13 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-28 | Meet Me In Love | Blossoms | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093132183225631130) |
+| 2026-08-27 | Say Yes | Weezer | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092753012515389693) |
+| 2026-08-26 | 庭師King | 平澤進 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092382750988967961) |
+| 2026-08-25 | This Mirror Weighs a Ton | Interpol | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092028114847326494) |
+| 2026-08-24 | - | Ultravox | Vienna | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2091665644785971623) |
+| 2026-08-23 | Angels of Ruin | Crying Vessel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2091484795767595082) |
+| 2026-08-22 | Pigwig | Bloc Party | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2091012939096736063) |
 | 2026-08-20 | Marianne | Fontaines D.C. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2090344579019190490) |
 | 2026-08-17 | Dine N'Dash | The Strokes | REALITY AWAITS | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2089171147644703019) |
 | 2026-08-16 | No Encores in a Swan Song | Blind Channel | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2088933451311595683) |
