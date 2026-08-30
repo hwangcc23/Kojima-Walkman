@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-08-29 | Buckle (Brown Bar Version) | We Are Scientists & Sean McVerry | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093591958551921125) |
 | 2026-08-28 | Meet Me In Love | Blossoms | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093132183225631130) |
 | 2026-08-27 | Say Yes | Weezer | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092753012515389693) |
 | 2026-08-26 | 庭師King | 平澤進 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092382750988967961) |
