@@ -18,6 +18,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-04 | Jupiter | Earth Wind & Fire | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095651972011688119) |
+| 2026-09-03 | Night Train (Main Instrumental) | Visage | The Instrumentals Collection | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095293496953594151) |
+| 2026-09-02 | Elegia | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2094929186343547165) |
+| 2026-09-01 | Gold | Majestic, Spandau Ballet | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2094563701735243798) |
+| 2026-08-31 | Can We Say I Do | Air Supply | A Matter of Time | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2094201816099791085) |
+| 2026-08-30 | Hold Me Now (2022 Remaster) | John Wetton | Battle Lines | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093922060850630854) |
 | 2026-08-29 | Buckle (Brown Bar Version) | We Are Scientists & Sean McVerry | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093591958551921125) |
 | 2026-08-28 | Meet Me In Love | Blossoms | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2093132183225631130) |
 | 2026-08-27 | Say Yes | Weezer | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2092753012515389693) |
