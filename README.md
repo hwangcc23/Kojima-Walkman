@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-05 | Trophy | 上白石萌音 | bouquet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2096058969576128685) |
 | 2026-09-04 | Jupiter | Earth Wind & Fire | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095651972011688119) |
 | 2026-09-03 | Night Train (Main Instrumental) | Visage | The Instrumentals Collection | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095293496953594151) |
 | 2026-09-02 | Elegia | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2094929186343547165) |
