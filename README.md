@@ -18,6 +18,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-11 | Dying In Reverse | Cage The Elephant | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2098195984845361444) |
+| 2026-09-10 | ひとひら | 上白石萌音 | bouquet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2097827079089954817) |
+| 2026-09-09 | The Ballad Of DCB | Formal Sppedwear | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2097462940769337829) |
+| 2026-09-08 | In Motion | The Snuts | Joy In Short Moments | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2097101370629489057) |
+| 2026-09-07 | Don't Answer Me | The Alan Parsons Project | The Best Of The Alan Parsons Project Volume 2 | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2096742351331041715) |
+| 2026-09-06 | オリジナルフェイク | 三浦大知 | I know I don't know | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2096424812344377764) |
 | 2026-09-05 | Trophy | 上白石萌音 | bouquet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2096058969576128685) |
 | 2026-09-04 | Jupiter | Earth Wind & Fire | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095651972011688119) |
 | 2026-09-03 | Night Train (Main Instrumental) | Visage | The Instrumentals Collection | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2095293496953594151) |
