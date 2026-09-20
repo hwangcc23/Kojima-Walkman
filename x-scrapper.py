@@ -125,9 +125,22 @@ async def scrape_x(url, duration_hours, debug=False):
         )
         page = await context.new_page()
 
+        auth_error_detected = [False]
+
+        async def handle_response(response):
+            if "graphql" in response.url and response.status == 403:
+                try:
+                    text = await response.text()
+                    if "Could not authenticate you" in text or '"code":32' in text:
+                        auth_error_detected[0] = True
+                except:
+                    pass
+
+        page.on("response", handle_response)
+
         log(f"Navigating to {url}...")
         try:
-            await page.goto(url, wait_until="load", timeout=60000)
+            await page.goto(url, wait_until="domcontentloaded", timeout=60000)
             await asyncio.sleep(3)
 
             # Dismiss any modal/overlay (e.g. "Get Verified" banner)
@@ -139,10 +152,14 @@ async def scrape_x(url, duration_hours, debug=False):
             await asyncio.sleep(2)
 
             try:
-                await page.wait_for_selector('article[data-testid="tweet"]', timeout=60000)
+                await page.wait_for_selector('article[data-testid="tweet"]', timeout=30000)
             except Exception as te:
                 await page.screenshot(path="debug_timeout.png")
-                log("Timeout waiting for tweets. Screenshot saved to debug_timeout.png")
+                if auth_error_detected[0]:
+                    sys.stderr.write("ERROR: X.com authentication failed (auth_token expired or invalid).\n")
+                    sys.stderr.write("Please update 'auth_token' in config.json with a fresh cookie from your logged-in browser session.\n")
+                else:
+                    log("Timeout waiting for tweets. Screenshot saved to debug_timeout.png")
                 raise te
 
             reached_end = False
