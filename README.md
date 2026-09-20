@@ -203,9 +203,30 @@ Create a file named `config.json` in the root directory. It holds both your X.co
 
 #### Setup Steps:
 1. **X.com Session (`x_auth_state`)**:
-   - Log into X.com in your browser.
-   - Open Developer Tools (F12) -> Application -> Cookies.
-   - Find the `auth_token` cookie and copy its value, pasting it into the template above.
+   You can set up your X.com session using either of the following methods:
+
+   - **Method A: Manual `auth_token` extraction**
+     - Log into X.com in your browser.
+     - Open Developer Tools (`F12`) -> **Application** (or **Storage**) -> **Cookies**.
+     - Find the `auth_token` cookie and copy its value, pasting it into the template above.
+
+   - **Method B: Full Cookie Export via Cookie-Editor (Recommended for High Reliability)**
+     - Install the browser extension **Cookie-Editor** ([Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/) / [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)).
+     - Log into X.com, click the Cookie-Editor icon, and click **Export** -> **Export as JSON**.
+     - Paste the exported JSON array directly into `"cookies"` inside `x_auth_state`:
+       ```json
+       {
+         "x_auth_state": {
+           "cookies": [
+             /* Paste the exported Cookie JSON array here */
+           ],
+           "origins": []
+         },
+         "gemini_api_key": "YOUR_GEMINI_API_KEY"
+       }
+       ```
+     *(Note: `x-scrapper.py` automatically sanitizes extension-specific fields like `no_restriction` sameSite or null attributes for Playwright compatibility.)*
+
 2. **Gemini API Key (`gemini_api_key`)**:
    - Visit [Google AI Studio](https://aistudio.google.com/).
    - Create a free API Key and paste it into the `gemini_api_key` field. This enables the high-accuracy visual analysis engine.

@@ -84,6 +84,58 @@ def extract_username(url):
     match = re.search(r"(?:x|twitter)\.com/([^/?#]+)", url)
     return match.group(1) if match else "unknown"
 
+def sanitize_cookies(cookies):
+    sanitized = []
+    for c in cookies:
+        if not isinstance(c, dict):
+            continue
+
+        name = c.get("name")
+        value = c.get("value")
+        domain = c.get("domain", ".x.com")
+        path = c.get("path", "/")
+        if not name or value is None:
+            continue
+
+        cookie = {
+            "name": str(name),
+            "value": str(value),
+            "domain": str(domain),
+            "path": str(path),
+        }
+
+        # Normalize sameSite for Playwright requirement ('Strict' | 'Lax' | 'None')
+        ss = c.get("sameSite")
+        if isinstance(ss, str):
+            ss_lower = ss.lower()
+            if ss_lower == "strict":
+                cookie["sameSite"] = "Strict"
+            elif ss_lower in ("lax", "unspecified"):
+                cookie["sameSite"] = "Lax"
+            elif ss_lower in ("none", "no_restriction"):
+                cookie["sameSite"] = "None"
+            else:
+                cookie["sameSite"] = "Lax"
+        else:
+            cookie["sameSite"] = "Lax"
+
+        # Normalize expiration field
+        expires = c.get("expires") if "expires" in c else c.get("expirationDate")
+        if isinstance(expires, (int, float)):
+            cookie["expires"] = float(expires)
+
+        if "httpOnly" in c and isinstance(c["httpOnly"], bool):
+            cookie["httpOnly"] = c["httpOnly"]
+        if "secure" in c and isinstance(c["secure"], bool):
+            cookie["secure"] = c["secure"]
+
+        if "partitionKey" in c and isinstance(c["partitionKey"], str):
+            cookie["partitionKey"] = c["partitionKey"]
+
+        sanitized.append(cookie)
+
+    return sanitized
+
 async def scrape_x(url, duration_hours, debug=False):
     def log(msg):
         if debug:
@@ -105,6 +157,9 @@ async def scrape_x(url, duration_hours, debug=False):
                 sys.stdout.write("[]\n")
                 sys.stdout.flush()
                 return
+
+            # Auto-sanitize cookies for Playwright compatibility
+            auth_state["cookies"] = sanitize_cookies(auth_state["cookies"])
     except Exception as e:
         sys.stderr.write(f"Error loading config.json: {e}\n")
         sys.stdout.write("[]\n")

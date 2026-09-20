@@ -15,6 +15,7 @@ import base64
 import mimetypes
 import logging
 import re
+import time
 import httpx
 
 def analyze_music(reader, image_path):
@@ -195,31 +196,35 @@ def analyze_music_gemini(image_path, api_key, model_name):
             }
         }
 
-        # 4. Make HTTP POST request to Gemini API
-        with httpx.Client(timeout=20.0) as client:
-            response = client.post(url, json=payload)
-            response.raise_for_status()
+        # 4. Make HTTP POST request to Gemini API with retry on 429
+        for attempt in range(3):
+            with httpx.Client(timeout=20.0) as client:
+                response = client.post(url, json=payload)
+                if response.status_code == 429 and attempt < 2:
+                    time.sleep(3 * (attempt + 1))
+                    continue
+                response.raise_for_status()
 
-            response_json = response.json()
-            # Extract content from response
-            candidates = response_json.get("candidates", [])
-            if not candidates:
-                sys.stderr.write(f"No candidates returned from Gemini for {os.path.basename(image_path)}\n")
-                return "Unknown Title", None, None
+                response_json = response.json()
+                # Extract content from response
+                candidates = response_json.get("candidates", [])
+                if not candidates:
+                    sys.stderr.write(f"No candidates returned from Gemini for {os.path.basename(image_path)}\n")
+                    return "Unknown Title", None, None
 
-            text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-            if not text_content:
-                sys.stderr.write(f"Empty text content in Gemini response for {os.path.basename(image_path)}\n")
-                return "Unknown Title", None, None
+                text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+                if not text_content:
+                    sys.stderr.write(f"Empty text content in Gemini response for {os.path.basename(image_path)}\n")
+                    return "Unknown Title", None, None
 
-            # Parse response JSON
-            data = json.loads(text_content.strip())
+                # Parse response JSON
+                data = json.loads(text_content.strip())
 
-            song_title = data.get("song_title") or "Unknown Title"
-            artist = data.get("artist") or None
-            album = data.get("album") or None
+                song_title = data.get("song_title") or "Unknown Title"
+                artist = data.get("artist") or None
+                album = data.get("album") or None
 
-            return song_title, artist, album
+                return song_title, artist, album
 
     except Exception as e:
         sys.stderr.write(f"Error processing {image_path} with Gemini ({model_name}): {e}\n")
