@@ -18,6 +18,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-20 | Bowie's Vision | Rick Wakeman | Return To The Red Planet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2101509207589847168) |
+| 2026-09-18 | Here Comes the Feeling | Asia | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2100777608296411267) |
+| 2026-09-17 | Isolation (Live The Moonlight Club, London 3rd April, 1980) | Joy Division | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2100362935994593710) |
+| 2026-09-16 | Call It In | Editors | SURFACE, ECHO & SOUND | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2100027925613707431) |
+| 2026-09-15 | 音銀河 | 玉置浩二 & ASKA | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2099645604460990607) |
+| 2026-09-14 | Welcome to the Black Parade | My Chemical Romance | The Black Parade | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2099303037047390461) |
 | 2026-09-11 | Dying In Reverse | Cage The Elephant | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2098195984845361444) |
 | 2026-09-10 | ひとひら | 上白石萌音 | bouquet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2097827079089954817) |
 | 2026-09-09 | The Ballad Of DCB | Formal Sppedwear | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2097462940769337829) |
