@@ -173,10 +173,14 @@ async def scrape_x(url, duration_hours, debug=False):
     seen_ids = set()
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"]
+        )
         context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-            storage_state=auth_state
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            storage_state=auth_state,
+            viewport={"width": 1440, "height": 1200}
         )
         page = await context.new_page()
 
@@ -196,26 +200,34 @@ async def scrape_x(url, duration_hours, debug=False):
         log(f"Navigating to {url}...")
         try:
             await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            await asyncio.sleep(3)
 
-            # Dismiss any modal/overlay (e.g. "Get Verified" banner)
-            await page.keyboard.press("Escape")
-            await asyncio.sleep(1)
+            # Active polling and scrolling loop to wait for tweets
+            log("Waiting for tweets to render...")
+            tweets_found = False
+            start_wait = asyncio.get_event_loop().time()
+            max_wait_seconds = 120
 
-            # Scroll down to trigger virtualized tweet rendering
-            await page.evaluate("window.scrollBy(0, 600)")
-            await asyncio.sleep(2)
+            while asyncio.get_event_loop().time() - start_wait < max_wait_seconds:
+                tweets = await page.query_selector_all('article[data-testid="tweet"]')
+                if len(tweets) > 0:
+                    tweets_found = True
+                    log(f"Tweets detected ({len(tweets)}) after {asyncio.get_event_loop().time() - start_wait:.1f}s.")
+                    break
 
-            try:
-                await page.wait_for_selector('article[data-testid="tweet"]', timeout=30000)
-            except Exception as te:
+                # Dismiss potential popups/overlays
+                await page.keyboard.press("Escape")
+                # Scroll down to trigger lazy loading / virtualized list
+                await page.evaluate("window.scrollBy(0, 600)")
+                await asyncio.sleep(2)
+
+            if not tweets_found:
                 await page.screenshot(path="debug_timeout.png")
                 if auth_error_detected[0]:
                     sys.stderr.write("ERROR: X.com authentication failed (auth_token expired or invalid).\n")
                     sys.stderr.write("Please update 'auth_token' in config.json with a fresh cookie from your logged-in browser session.\n")
                 else:
                     log("Timeout waiting for tweets. Screenshot saved to debug_timeout.png")
-                raise te
+                raise TimeoutError("Timeout exceeded waiting for article[data-testid=\"tweet\"] to appear.")
 
             reached_end = False
             scroll_attempts = 0
@@ -239,10 +251,13 @@ async def scrape_x(url, duration_hours, debug=False):
                     
                     if tid in seen_ids: continue
 
-                    # Basic Pinned Check
+                    # Basic Pinned Check (supports EN, ZH, JA)
                     is_pinned = False
                     sc = await tweet.query_selector('div[data-testid="socialContext"]')
-                    if sc and "Pinned" in (await sc.inner_text()): is_pinned = True
+                    if sc:
+                        sc_text = await sc.inner_text()
+                        if any(k in sc_text for k in ("Pinned", "已釘選", "固定されたツイート")):
+                            is_pinned = True
                     
                     if ttime < cutoff_time:
                         if scroll_attempts < 20: continue # Likely suggested/pinned
