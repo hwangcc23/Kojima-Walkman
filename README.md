@@ -18,6 +18,9 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-25 | Fade to Grey (Single Version) | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2103265408065384773) |
+| 2026-09-24 | Ask For Water | Matt Berninger | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2102908147849638203) |
+| 2026-09-23 | Roses | CHVRCHES | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2102563371522658489) |
 | 2026-09-20 | Bowie's Vision | Rick Wakeman | Return To The Red Planet | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2101509207589847168) |
 | 2026-09-18 | Here Comes the Feeling | Asia | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2100777608296411267) |
 | 2026-09-17 | Isolation (Live The Moonlight Club, London 3rd April, 1980) | Joy Division | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2100362935994593710) |
