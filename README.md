@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-09-28 | Caught Between | Brian Eno | Another Day on Earth | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2104457129281347677) |
 | 2026-09-27 | Dead! (Live from Hoboken) | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2104014639952748784) |
 | 2026-09-25 | Fade to Grey (Single Version) | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2103265408065384773) |
 | 2026-09-24 | Ask For Water | Matt Berninger | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2102908147849638203) |
