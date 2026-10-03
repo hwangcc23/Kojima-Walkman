@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-02 | Vivid (Radio Edit) | Electronic | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105872364181520655) |
+| 2026-10-01 | Tongue | Fontaines D.C. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105517789310312860) |
+| 2026-09-30 | Wave To America | Soft Cell | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105194811909116051) |
+| 2026-09-29 | Arcadia | Asia | Indigo | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2104853086401593779) |
 | 2026-09-28 | Caught Between | Brian Eno | Another Day on Earth | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2104457129281347677) |
 | 2026-09-27 | Dead! (Live from Hoboken) | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2104014639952748784) |
 | 2026-09-25 | Fade to Grey (Single Version) | Midge Ure | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2103265408065384773) |
