@@ -18,6 +18,9 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-05 | Violate | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107014176459854309) |
+| 2026-10-04 | - | Kraftwerk | Radio-Activity | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2106570553477972300) |
+| 2026-10-04 | Underground | Mogwai, Iggy Pop | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2106407899472040336) |
 | 2026-10-02 | Vivid (Radio Edit) | Electronic | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105872364181520655) |
 | 2026-10-01 | Tongue | Fontaines D.C. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105517789310312860) |
 | 2026-09-30 | Wave To America | Soft Cell | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2105194811909116051) |
