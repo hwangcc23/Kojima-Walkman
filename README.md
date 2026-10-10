@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-09 | Now We Can't Be Friends | Bloc Party & The Itch | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2108346087451091032) |
+| 2026-10-08 | Altitude | Brigitte Calls Me Baby | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107979829626986781) |
+| 2026-10-07 | - | Talk Talk | The Colour of Spring | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107493601513222281) |
+| 2026-10-06 | Spinning Away | Brian Eno, John Cale | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107253370943836670) |
 | 2026-10-05 | Violate | This Eternal Decay | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107014176459854309) |
 | 2026-10-04 | - | Kraftwerk | Radio-Activity | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2106570553477972300) |
 | 2026-10-04 | Underground | Mogwai, Iggy Pop | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2106407899472040336) |
