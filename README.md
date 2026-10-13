@@ -18,6 +18,8 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-13 | Where Is Gone? | Fontaines D.C. & ROSALIA | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2109802425225973870) |
+| 2026-10-12 | Not in a Million Years | Fra Lippo Lippi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2109496174030020901) |
 | 2026-10-10 | He dreamed of machines | Pet Shop Boys | A man from the future | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2108763243217117628) |
 | 2026-10-09 | Now We Can't Be Friends | Bloc Party & The Itch | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2108346087451091032) |
 | 2026-10-08 | Altitude | Brigitte Calls Me Baby | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2107979829626986781) |
