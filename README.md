@@ -18,6 +18,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-23 | Random Violence | Hot Chip | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113409821211087076) |
+| 2026-10-22 | Cross Whisper | MG X CD + JL =, Martin Gore, Cliff Damavandi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113050571234254989) |
+| 2026-10-21 | Higher | Take That | Dreamers | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2112669176171274600) |
+| 2026-10-20 | MOTHER | Susumu Hirasawa | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2112329637066125507) |
+| 2026-10-19 | 君をのせて (シータとパズー) | Azumi Inoue | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2111959504602705995) |
+| 2026-10-18 | Watch Me Bleed | Tears for Fears | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2111649006539722810) |
 | 2026-10-17 | Isle of Dogs | Morrissey | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2111263993314898171) |
 | 2026-10-16 | North Winds Blowing | The Stranglers | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2110872713913118892) |
 | 2026-10-15 | - | Johnny Marr | The Age of Everything | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2110513738000593083) |
