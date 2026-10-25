@@ -18,6 +18,8 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-25 | - | ULTRAVOX | QUARTET [Steven Wilson Stereo Mix] | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2114178514190753882) |
+| 2026-10-24 | Somewhere Without A Name | Magnolian & Karen Aoki | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113893440991953330) |
 | 2026-10-23 | Random Violence | Hot Chip | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113409821211087076) |
 | 2026-10-22 | Cross Whisper | MG X CD + JL =, Martin Gore, Cliff Damavandi | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113050571234254989) |
 | 2026-10-21 | Higher | Take That | Dreamers | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2112669176171274600) |
