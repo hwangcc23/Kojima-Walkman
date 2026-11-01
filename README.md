@@ -18,6 +18,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10-31 | The End. | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2116457407878754582) |
+| 2026-10-30 | Call It In | Editors | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2115961914752913590) |
+| 2026-10-29 | Overthinker | CHVRCHES | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2115587428425834605) |
+| 2026-10-28 | Guess I'm Stuck In The Dark | Heartworms | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2115225856490815571) |
+| 2026-10-27 | - | My Chemical Romance | The Black Parade | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2114861080099029353) |
+| 2026-10-26 | Akatsuki no Hoshi | Nana Mizuki | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2114499749428793398) |
 | 2026-10-25 | - | ULTRAVOX | QUARTET [Steven Wilson Stereo Mix] | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2114178514190753882) |
 | 2026-10-24 | Somewhere Without A Name | Magnolian & Karen Aoki | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113893440991953330) |
 | 2026-10-23 | Random Violence | Hot Chip | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2113409821211087076) |
