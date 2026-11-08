@@ -18,6 +18,14 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-11-08 | Death Stranding | CHVRCHES | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2119256410295091566) |
+| 2026-11-07 | MOSAIC | Denki Groove | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2118921599927931021) |
+| 2026-11-06 | Home (Tom Sharkett Edit) | LCD Soundsystem | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2118488898049646727) |
+| 2026-11-05 | U Should Not Be Doing That - triple j Like A version | Franz Ferdinand, triple j | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2118125553878532214) |
+| 2026-11-04 | Undone | Darkways | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2117759840508612991) |
+| 2026-11-03 | Mimesis | Fontaines D.C. | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2117421826750247226) |
+| 2026-11-02 | Messiah | Blind Channel | Painstream | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2117033912220397727) |
+| 2026-11-01 | God Will Come And Take Away Our Werewolves | The Flaming Lips | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2116795133169729887) |
 | 2026-10-31 | The End. | My Chemical Romance | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2116457407878754582) |
 | 2026-10-30 | Call It In | Editors | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2115961914752913590) |
 | 2026-10-29 | Overthinker | CHVRCHES | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2115587428425834605) |
