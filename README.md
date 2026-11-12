@@ -18,6 +18,10 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-11-12 | Girl | Aina The End | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2120682760327299426) |
+| 2026-11-11 | Dark Summer | The Rasmus | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2120296460046766590) |
+| 2026-11-10 | Sunday | Queens of the Stone Age | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2119931551538626586) |
+| 2026-11-09 | Into My Arms (2011 Remaster) | Nick Cave & The Bad Seeds | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2119577702198055026) |
 | 2026-11-08 | Death Stranding | CHVRCHES | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2119256410295091566) |
 | 2026-11-07 | MOSAIC | Denki Groove | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2118921599927931021) |
 | 2026-11-06 | Home (Tom Sharkett Edit) | LCD Soundsystem | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2118488898049646727) |
