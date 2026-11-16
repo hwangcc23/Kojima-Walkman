@@ -18,6 +18,7 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-11-16 | Bizarre Love Triangle | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2122127295003693247) |
 | 2026-11-15 | Sugar | Hitsujibungaku | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2121765037639655688) |
 | 2026-11-14 | Advice For The Young At Heart | Tears for Fears | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2121492457246576777) |
 | 2026-11-12 | Girl | Aina The End | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2120682760327299426) |
