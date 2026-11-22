@@ -16,6 +16,10 @@ import time
 import re
 import httpx
 
+class GeminiAuthError(Exception):
+    """Raised when Gemini API encounters a fatal authentication or authorization error (e.g. 400, 401, 403)."""
+    pass
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Verify and correct song information against Spotify and Google Search using Gemini."
@@ -83,18 +87,20 @@ def parse_args():
     return parser.parse_args()
 
 def load_gemini_api_key():
-    """Loads Gemini API key from config.json or environment."""
-    api_key = None
+    """Loads Gemini API key from environment or config.json."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if api_key is not None:
+        return api_key.strip() if api_key.strip() else None
+
     if os.path.exists("config.json"):
         try:
             with open("config.json", "r", encoding="utf-8") as f:
                 cfg = json.load(f)
-                api_key = cfg.get("gemini_api_key")
+                val = cfg.get("gemini_api_key")
+                if val and str(val).strip():
+                    api_key = str(val).strip()
         except Exception as e:
             sys.stderr.write(f"Warning: Failed to read config.json: {e}\n")
-
-    if not api_key:
-        api_key = os.environ.get("GEMINI_API_KEY")
 
     return api_key
 
@@ -161,6 +167,15 @@ Instructions:
                 sys.stderr.write(f"[Debug] Requesting Gemini ({model}) for '{song_title}', attempt {attempt + 1}...\n")
             with httpx.Client(timeout=35.0) as client:
                 resp = client.post(url, json=payload)
+                if resp.status_code in (400, 401, 403):
+                    err_msg = resp.text
+                    try:
+                        err_json = resp.json()
+                        err_msg = err_json.get("error", {}).get("message", resp.text)
+                    except Exception:
+                        pass
+                    raise GeminiAuthError(f"HTTP {resp.status_code}: {err_msg}")
+
                 if resp.status_code in (429, 503):
                     wait_sec = 2 * (attempt + 1)
                     sys.stderr.write(f"Notice: Gemini API returned {resp.status_code}. Retrying in {wait_sec}s...\n")
@@ -202,6 +217,8 @@ Instructions:
                         "confidence": parsed.get("confidence", "medium"),
                         "correction_notes": parsed.get("correction_notes", "")
                     }
+        except GeminiAuthError:
+            raise
         except Exception as e:
             if debug:
                 sys.stderr.write(f"[Debug] Attempt {attempt + 1} failed: {e}\n")
@@ -304,6 +321,30 @@ def update_readme_table(readme_path, all_entries):
         sys.stderr.write(f"Error: Failed to update '{readme_path}': {e}\n")
         return False
 
+def pass_through_stream(reason=""):
+    """
+    Passes JSON list from stdin directly to stdout when verification is skipped or unavailable.
+    Ensures downstream pipeline stages (like update-files) receive the unverified items intact.
+    """
+    try:
+        input_data = sys.stdin.read()
+        if not input_data.strip():
+            sys.stdout.write("[]\n")
+            sys.stdout.flush()
+            return
+        items = json.loads(input_data)
+        if not isinstance(items, list):
+            sys.stderr.write("Error: Expected a JSON list from stdin.\n")
+            sys.exit(1)
+        if reason:
+            sys.stderr.write(f"[Verifier] Notice: {reason}. Passing through {len(items)} raw item(s) without verification.\n")
+        sys.stdout.write(json.dumps(items, ensure_ascii=False, indent=2))
+        sys.stdout.write('\n')
+        sys.stdout.flush()
+    except json.JSONDecodeError as e:
+        sys.stderr.write(f"Error: stdin is not valid JSON: {e}\n")
+        sys.exit(1)
+
 def process_pipeline_stream(api_key, model, debug=False):
     """
     Handles Unix pipe mode: reads JSON list from stdin, verifies each item,
@@ -330,13 +371,26 @@ def process_pipeline_stream(api_key, model, debug=False):
         return
 
     sys.stderr.write(f"--- [Verifier] Verifying {len(items)} song(s) via Gemini Search Grounding ---\n")
+    auth_failed = False
     for item in items:
         orig_title = item.get("song_title") or "Unknown Title"
         orig_artist = item.get("artist") or ""
         orig_album = item.get("album") or ""
 
+        if auth_failed:
+            sys.stderr.write(f"[Verifier] Skipping verification for '{orig_title}' due to earlier auth failure. Keeping original values.\n")
+            continue
+
         sys.stderr.write(f"[Verifier] Verifying: \"{orig_title}\" by \"{orig_artist}\"...\n")
-        res = verify_song_with_gemini(orig_title, orig_artist, orig_album, api_key, model, debug)
+        res = None
+        try:
+            res = verify_song_with_gemini(orig_title, orig_artist, orig_album, api_key, model, debug)
+        except GeminiAuthError as e:
+            sys.stderr.write(f"[Verifier] Gemini API authentication failed: {e}\n")
+            sys.stderr.write("[Verifier] Disabling verification for remaining items; retaining original metadata.\n")
+            auth_failed = True
+        except Exception as e:
+            sys.stderr.write(f"[Verifier] Unexpected error during verification: {e}\n")
 
         if res:
             v_title = res["verified_song_title"]
@@ -364,7 +418,8 @@ def process_pipeline_stream(api_key, model, debug=False):
             else:
                 sys.stderr.write("  -> Metadata confirmed accurate, no corrections needed.\n")
         else:
-            sys.stderr.write(f"[Verifier] Verification skipped/failed for '{orig_title}'. Keeping original values.\n")
+            if not auth_failed:
+                sys.stderr.write(f"[Verifier] Verification skipped/failed for '{orig_title}'. Keeping original values.\n")
 
     sys.stderr.write("--- [Verifier] Verification complete ---\n")
     # Output JSON to stdout for pipeline continuity
@@ -383,8 +438,13 @@ def main():
     # Load Gemini API Key
     api_key = load_gemini_api_key()
     if not api_key:
-        sys.stderr.write("Error: Gemini API key not found. Please set 'gemini_api_key' in config.json or export GEMINI_API_KEY.\n")
-        sys.exit(1)
+        if not sys.stdin.isatty():
+            # Pipeline Mode: graceful pass-through
+            pass_through_stream(reason="Gemini API key not found in config.json or environment")
+            return
+        else:
+            sys.stderr.write("Error: Gemini API key not found. Please set 'gemini_api_key' in config.json or export GEMINI_API_KEY.\n")
+            sys.exit(1)
 
     model = get_best_model(api_key, args.model)
     if args.debug:
@@ -393,7 +453,12 @@ def main():
     # 1. Single-track Ad-hoc mode
     if args.title:
         sys.stderr.write(f"Verifying track: \"{args.title}\" by \"{args.artist}\" (Album: \"{args.album}\")...\n")
-        res = verify_song_with_gemini(args.title, args.artist, args.album, api_key, model, args.debug)
+        try:
+            res = verify_song_with_gemini(args.title, args.artist, args.album, api_key, model, args.debug)
+        except GeminiAuthError as e:
+            sys.stderr.write(f"Error: Gemini API authentication failed: {e}\n")
+            sys.exit(1)
+
         if res:
             sys.stdout.write(json.dumps(res, ensure_ascii=False, indent=2) + "\n")
         else:
@@ -462,7 +527,12 @@ def main():
         date_str = (entry.get("timestamp") or "")[:10]
 
         sys.stderr.write(f"[{idx + 1}/{len(target_indices)}] [{date_str}] \"{orig_title}\" - \"{orig_artist}\" (Album: \"{orig_album}\")\n")
-        res = verify_song_with_gemini(orig_title, orig_artist, orig_album, api_key, model, args.debug)
+        try:
+            res = verify_song_with_gemini(orig_title, orig_artist, orig_album, api_key, model, args.debug)
+        except GeminiAuthError as e:
+            sys.stderr.write(f"\nError: Gemini API authentication failed: {e}\n")
+            sys.stderr.write("Verification aborted.\n")
+            sys.exit(1)
 
         if not res:
             sys.stderr.write("   -> Verification query failed or timed out.\n\n")
