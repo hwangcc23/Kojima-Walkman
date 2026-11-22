@@ -18,6 +18,9 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 | Date | Song Title | Artist | Album | Tweet URL |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-11-20 | Through Fire & Ashes | Within Temptation, S10 | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2123559182771401077) |
+| 2026-11-19 | People Are Good (Indira Paganotto Psy Remix) | Depeche Mode | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2123194019895447648) |
+| 2026-11-18 | No Time To Die | Billie Eilish | No Time To Die | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2122834953901949055) |
 | 2026-11-17 | James Bond Theme (Moby's Re-Version) | Moby | James Bond Theme (Moby's Re-Version) | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2122470981134610809) |
 | 2026-11-16 | Bizarre Love Triangle | New Order | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2122127295003693247) |
 | 2026-11-15 | Sugar | Hitsujibungaku | - | [Link](https://x.com/HIDEO_KOJIMA_EN/status/2121765037639655688) |
