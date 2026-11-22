@@ -5,12 +5,16 @@
 
 # Parse command line arguments
 DEBUG_FLAG=""
+SKIP_VERIFY=false
 POSITIONAL_ARGS=()
 
 for arg in "$@"; do
     case "$arg" in
         --debug|-D)
             DEBUG_FLAG="--debug"
+            ;;
+        --no-verify)
+            SKIP_VERIFY=true
             ;;
         *)
             POSITIONAL_ARGS+=("$arg")
@@ -48,10 +52,20 @@ echo "----------------------------------------" >&2
 # 1. x-scrapper.py: Fetches post metadata
 # 2. kojima-walkman-image-downloader.py: Filters 'Good morning' posts and downloads images
 # 3. kojima-walkman-music-analyzer.py: Performs analysis to extract music info
-./venv/bin/python3 x-scrapper.py "$TARGET_URL" -d "$DURATION" ${DEBUG_FLAG:+"$DEBUG_FLAG"} | \
-./venv/bin/python3 kojima-walkman-image-downloader.py | \
-./venv/bin/python3 kojima-walkman-music-analyzer.py --engine "$ENGINE" | \
-./venv/bin/python3 kojima-walkman-update-files.py
+# 4. song-name-verifier.py: Verifies & corrects music metadata via Gemini / Spotify (default enabled)
+# 5. kojima-walkman-update-files.py: Updates JSON database and README
+if [ "$SKIP_VERIFY" = true ]; then
+    ./venv/bin/python3 x-scrapper.py "$TARGET_URL" -d "$DURATION" ${DEBUG_FLAG:+"$DEBUG_FLAG"} | \
+    ./venv/bin/python3 kojima-walkman-image-downloader.py | \
+    ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine "$ENGINE" | \
+    ./venv/bin/python3 kojima-walkman-update-files.py
+else
+    ./venv/bin/python3 x-scrapper.py "$TARGET_URL" -d "$DURATION" ${DEBUG_FLAG:+"$DEBUG_FLAG"} | \
+    ./venv/bin/python3 kojima-walkman-image-downloader.py | \
+    ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine "$ENGINE" | \
+    ./venv/bin/python3 song-name-verifier.py ${DEBUG_FLAG:+"$DEBUG_FLAG"} | \
+    ./venv/bin/python3 kojima-walkman-update-files.py
+fi
 
 echo "----------------------------------------" >&2
 echo "Pipeline execution finished." >&2
