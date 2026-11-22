@@ -222,10 +222,12 @@ The following table lists the songs captured from Hideo Kojima's posts, sorted b
 
 ## Technical Overview
 
-This project utilizes a multi-stage pipeline:
-1.  **Scraper**: A Playwright-based tool to fetch tweet metadata.
-2.  **Downloader**: Filters "Good morning" posts and downloads high-quality screenshots.
-3.  **Analyzer**: An EasyOCR-powered engine that extracts music metadata from images.
+This project utilizes a modular, unix-pipe compatible multi-stage pipeline:
+1.  **Scraper (`x-scrapper.py`)**: Fetches post metadata from Hideo Kojima's X.com profile using Playwright.
+2.  **Downloader (`kojima-walkman-image-downloader.py`)**: Filters "Good morning" posts and downloads high-quality screenshots to `~/Downloads`.
+3.  **Analyzer (`kojima-walkman-music-analyzer.py`)**: Extracts song title, artist, and album using EasyOCR (offline heuristics) or Google Gemini 2.5 Flash Vision.
+4.  **Verifier (`song-name-verifier.py`)**: Verifies and corrects metadata against Spotify and Google Search via the Gemini API with Google Search Grounding.
+5.  **Data Sync (`kojima-walkman-update-files.py`)**: Appends verified entries to `kojima-walkman.json` and updates the playlist table in `README.md`.
 
 ## Usage
 
@@ -285,17 +287,23 @@ Create a file named `config.json` in the root directory. It holds both your X.co
 
 2. **Gemini API Key (`gemini_api_key`)**:
    - Visit [Google AI Studio](https://aistudio.google.com/).
-   - Create a free API Key and paste it into the `gemini_api_key` field. This enables the high-accuracy visual analysis engine.
+   - Create a free API Key and paste it into the `gemini_api_key` field. This enables the high-accuracy visual analysis and metadata verification engines.
 
 ### Option 1: One-Click Execution (Recommended)
-Use the master script to run all three steps automatically. You can specify the duration (in hours) as the first argument, and the analysis engine (`ocr` or `gemini`) as the second argument:
+Use the master script to run the pipeline automatically. You can specify the duration (in hours) as the first argument, and the analysis engine (`ocr` or `gemini`) as the second argument. Metadata verification against Spotify via Gemini is enabled by default:
 
 ```bash
-# Run for the last 24 hours using the default EasyOCR engine
+# Run for the last 24 hours using EasyOCR + Gemini Verifier (Default)
 ./kojima-walkman-scrapper.sh 24 ocr
 
-# Run for the last 24 hours using the Gemini LLM engine
+# Run for the last 24 hours using Gemini Vision + Gemini Verifier
 ./kojima-walkman-scrapper.sh 24 gemini
+
+# Bypass metadata verification stage
+./kojima-walkman-scrapper.sh 24 gemini --no-verify
+
+# Run with verbose debug logging
+./kojima-walkman-scrapper.sh 24 gemini --debug
 ```
 
 ### Option 2: Step-by-Step Execution
@@ -311,9 +319,37 @@ cat output.json | ./venv/bin/python3 kojima-walkman-image-downloader.py > downlo
 # 3. Analyze images to extract song info
 # Using default EasyOCR (offline):
 cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine ocr > results.json
-
 # OR using Google Gemini LLM API:
 cat downloads.json | ./venv/bin/python3 kojima-walkman-music-analyzer.py --engine gemini > results.json
+
+# 4. Verify and correct metadata against Spotify & Google Search
+cat results.json | ./venv/bin/python3 song-name-verifier.py > verified.json
+
+# 5. Update database and README playlist table
+cat verified.json | ./venv/bin/python3 kojima-walkman-update-files.py
+```
+
+### Option 3: Standalone Song Verifier
+`song-name-verifier.py` can also be run independently to inspect and correct entries in `kojima-walkman.json` or check single tracks:
+
+```bash
+# Verify uncommitted new entries in git compared to HEAD (default standalone behavior)
+./venv/bin/python3 song-name-verifier.py
+
+# Verify the latest N entries in the database
+./venv/bin/python3 song-name-verifier.py -c 5
+
+# Verify all entries in the database
+./venv/bin/python3 song-name-verifier.py --all
+
+# Automatically apply verified changes without prompt
+./venv/bin/python3 song-name-verifier.py -c 1 --apply
+
+# Dry-run inspection without modifying files
+./venv/bin/python3 song-name-verifier.py -c 3 --dry-run
+
+# Single track lookup & verification
+./venv/bin/python3 song-name-verifier.py --title "James Bond Theme (Moby)" --artist "Moby"
 ```
 
 ---
